@@ -196,7 +196,7 @@ public final class Items {
             }
         ).register(addon);
 
-        new Analyser(
+        new SlimefunItem(
             NpsGroups.TOOLS,
             Stacks.CRUX_GATHERER,
             RecipeType.ENHANCED_CRAFTING_TABLE,
