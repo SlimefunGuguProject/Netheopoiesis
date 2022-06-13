@@ -173,65 +173,61 @@ public final class Stacks {
         Material.MOSS_BLOCK,
         Theme.CRUX,
         "丛林结构",
-        "This soil is suitable for more",
-        "temperate plants."
+        "这种泥土适合温带植物生长."
     );
 
     public static final SlimefunItemStack BEACH_CRUX = Theme.themedSlimefunItemStack(
         "NPS_BEACH_CRUX",
         Material.SAND,
         Theme.CRUX,
-        "Beach Crux",
-        "This sand feels great between",
-        "your toes."
+        "海滩结构",
+        "走在这种沙子上感觉很棒."
     );
 
     public static final SlimefunItemStack DESERT_CRUX = Theme.themedSlimefunItemStack(
         "NPS_DESERT_CRUX",
         Material.RED_SAND,
         Theme.CRUX,
-        "Desert Crux",
-        "This sand is barren and dull",
-        "but still an improvement over",
-        "netherrack."
+        "沙漠结构",
+        "像是贫瘠且阴暗的沙漠,",
+        "但仍是一种下界岩的改进."
     );
 
     public static final SlimefunItemStack SNOW_CRUX = Theme.themedSlimefunItemStack(
         "NPS_SNOWY_CRUX",
         Material.SNOW_BLOCK,
         Theme.CRUX,
-        "Snowy Crux",
-        "A sudden drop in temperature is",
-        "sure to bring in new fauna."
+        "雪地结构",
+        "突然的降温肯定会",
+        "带来不少新物种."
     );
 
     public static final SlimefunItemStack STONEY_CRUX = Theme.themedSlimefunItemStack(
         "NPS_STONEY_CRUX",
         Material.STONE,
         Theme.CRUX,
-        "Snowy Crux",
-        "While not suitable for plants",
-        "there is a reason for everything."
+        "石头结构",
+        "虽然并不适合种植,",
+        "但万物都有存在的理由."
     );
 
     public static final SlimefunItemStack SWAMP_CRUX = Theme.themedSlimefunItemStack(
         "NPS_SWAMPY_CRUX",
         Material.GRASS_BLOCK,
         Theme.CRUX,
-        "Swampy Crux",
-        "This soil is over saturated yet",
-        "teeming with life."
+        "沼泽结构",
+        "这片土地过于饱和",
+        "且充满生机."
     );
 
     public static final SlimefunItemStack CRYSTALLINE_CRUX = Theme.themedSlimefunItemStack(
         "NPS_CRYSTALLINE_CRUX",
         Material.HONEYCOMB_BLOCK,
         Theme.CRUX,
-        "Crystalline Crux",
-        "This crux is unique in that it",
-        "spreads slowly out to other",
-        "nearby lava, cobblestone, stone",
-        "and obsidian blocks."
+        "晶化结构",
+        "这个结构与其他的不同,",
+        "它可以扩散到附近的",
+        "岩浆, 圆石, 石头, 黑曜石."
     );
 
     // endregion
@@ -244,16 +240,16 @@ public final class Stacks {
         "NPS_PURIFICATION_SEED",
         Skulls.SEED_BLUE.getPlayerHead(),
         Theme.PURIFYING_SEED,
-        "Purification Seed",
-        new String[]{"This seed, when fully grown,", "will slowly purify surrounding", "blocks."},
-        getCanBePlacedOnLore("Netherrack", "Warped Nylium", "Crimson Nylium")
+        "净化之种",
+        new String[]{"当这个种子完全生长时,", "会缓慢的净化周围的方块."},
+        getCanBePlacedOnLore("下界岩", "诡异菌岩", "绯红菌岩")
     );
 
     public static final SlimefunItemStack SOUL_SEED = Theme.themedSeed(
         "NPS_SOUL_SEED",
         Skulls.SEED_BLUE.getPlayerHead(),
         Theme.PURIFYING_SEED,
-        "Soul Seed",
+        "灵魂之种",
         new String[]{"This seed, when fully grown,", "will further push the purification", "process of nearby blocks."},
         getCanBePlacedOnLore("Basic Purified Netherrack (or better)")
     );
@@ -262,7 +258,7 @@ public final class Stacks {
         "NPS_SPIRIT_SEED",
         Skulls.SEED_BLUE.getPlayerHead(),
         Theme.PURIFYING_SEED,
-        "Spirit Seed",
+        "精神之种",
         new String[]{"This seed, when fully grown,", "will allow an even deeper purification", "for nearby blocks."},
         getCanBePlacedOnLore("Purified Netherrack (or better)")
     );
@@ -948,7 +944,7 @@ public final class Stacks {
     public static String[] getCanBePlacedOnLore(@Nonnull String... validPlacements) {
         String[] strings = new String[]{
             "",
-            Theme.CRUX + "Can be grown on:"
+            Theme.CRUX + "可种植在:"
         };
         return Stream.of(strings, validPlacements).flatMap(Stream::of).toArray(String[]::new);
     }
