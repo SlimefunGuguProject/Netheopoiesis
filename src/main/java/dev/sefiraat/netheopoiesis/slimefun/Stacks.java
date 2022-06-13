@@ -94,7 +94,7 @@ public final class Stacks {
         "NPS_SEED_ANALYSER",
         Material.COMPASS,
         Theme.TOOL,
-        "Seed Analyser",
+        "种子分析仪",
         "When used on a Nether Plant, this",
         "tool will provide you information",
         "about it's type, growth and",
@@ -105,9 +105,9 @@ public final class Stacks {
         "NPS_CRUX_GATHERER",
         Material.BLAZE_ROD,
         Theme.TOOL,
-        "Crux Gatherer",
-        "If you break a crux while holding",
-        "this tool, you can collect it's drop.",
+        "结构获取器",
+        "如果你使用结构获取器",
+        "破坏任何结构, 你可以收集this tool, you can collect it's drop.",
         "Does NOT change biomes."
     );
 

@@ -48,7 +48,7 @@ public class Analyser extends SlimefunItem {
             final ItemStack analyser = event.getItem();
 
             if (ItemStackUtils.isOnCooldown(analyser)) {
-                player.sendMessage(Theme.WARNING + "This item is still on cooldown.");
+                player.sendMessage(Theme.WARNING + "该物品仍在冷却中.");
                 return;
             }
 
@@ -62,11 +62,11 @@ public class Analyser extends SlimefunItem {
                 final UUID uuid = UUID.fromString(ownerString);
                 final OfflinePlayer ownerPlayer = Bukkit.getOfflinePlayer(uuid);
 
-                final String messageType = Theme.CLICK_INFO.asTitle("Seed Type", plant.getItemName());
-                final String messageStage = Theme.CLICK_INFO.asTitle("Growth Stage", growthStage);
-                final String messageOwner = Theme.CLICK_INFO.asTitle("Owner", ownerPlayer.getName());
+                final String messageType = Theme.CLICK_INFO.asTitle("种子类型", plant.getItemName());
+                final String messageStage = Theme.CLICK_INFO.asTitle("生长阶段", growthStage);
+                final String messageOwner = Theme.CLICK_INFO.asTitle("拥有者", ownerPlayer.getName());
                 final String messageValue = Theme.CLICK_INFO.asTitle(
-                    "Purification Value",
+                    "净化值",
                     plant.getPurificationValue()
                 );
                 player.sendMessage(messageType, messageStage, messageOwner, messageValue);
