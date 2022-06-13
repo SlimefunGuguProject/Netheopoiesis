@@ -85,9 +85,8 @@ public final class Stacks {
         Material.BRICK,
         Theme.TOOL,
         "净化扫描仪",
-        "When used on a relevant block or plant,",
-        "this tool will tell you what its",
-        "purifying effect on the world is."
+        "当右键点击方块或植物时,",
+        "可以显示出它的净化值."
     );
 
     public static final SlimefunItemStack SEED_ANALYSER = Theme.themedSlimefunItemStack(
@@ -95,10 +94,9 @@ public final class Stacks {
         Material.COMPASS,
         Theme.TOOL,
         "种子分析仪",
-        "When used on a Nether Plant, this",
-        "tool will provide you information",
-        "about it's type, growth and",
-        "purification values."
+        "当右键点击下界植物时,",
+        "你可以获得它的类型, 生长阶段,",
+        "以及净化值的信息."
     );
 
     public static final SlimefunItemStack CRUX_GATHERER = Theme.themedSlimefunItemStack(
@@ -107,20 +105,19 @@ public final class Stacks {
         Theme.TOOL,
         "结构获取器",
         "如果你使用结构获取器",
-        "破坏任何结构, 你可以收集this tool, you can collect it's drop.",
-        "Does NOT change biomes."
+        "破坏任何结构来收集它.",
+        "不会改变生物群系."
     );
 
     public static final SlimefunItemStack ENDER_CAKE = Theme.themedSlimefunItemStack(
         "NPS_ENDER_CAKE",
         Material.CAKE,
         Theme.TOOL,
-        "Ender Cake",
-        "This tasty cake has the power",
-        "to break through dimensions",
-        "when eaten.",
-        Theme.WARNING + "Make sure to sleep in the Nether",
-        Theme.WARNING + "if you wish to make it back!"
+        "末影蛋糕",
+        "食用这种美味的蛋糕后,",
+        "你将会获得跨越维度的能力.",
+        Theme.WARNING + "如果你还想找到它,",
+        Theme.WARNING + "那么一定要在下界设置记录点!"
     );
 
     // endregion
@@ -131,53 +128,51 @@ public final class Stacks {
         "NPS_BASIC_PURIFIED_NETHERRACK",
         Material.MYCELIUM,
         Theme.CRUX,
-        "Basic Purified Netherrack",
-        "This Netherrack has been purified",
-        "to allow more complex seeds to",
-        "be grown on it."
+        "基本净化的下界岩",
+        "这块下界岩已经被净化,",
+        "能让更加复杂的种子在上面生长."
     );
 
     public static final SlimefunItemStack PURIFIED_NETHERRACK = Theme.themedSlimefunItemStack(
         "NPS_PURIFIED_NETHERRACK",
         Material.PODZOL,
         Theme.CRUX,
-        "Purified Netherrack",
-        "This Netherrack has been purified",
-        "to allow more complex seeds to",
-        "be grown on it."
+        "净化的下界岩",
+        "这块下界岩已经被净化,",
+        "能让更加复杂的种子在上面生长."
     );
 
     public static final SlimefunItemStack VORACIOUS_DIRT = Theme.themedSlimefunItemStack(
         "NPS_VORACIOUS_DIRT",
         Material.ROOTED_DIRT,
         Theme.CRUX,
-        "Voracious Dirt",
-        "The Netherrack has been purified to",
-        "a point in which it is a viable soil."
+        "贪婪的泥土",
+        "这块下界岩已经被净化到一定程度,",
+        "它已经转化为活跃的泥土."
     );
 
     public static final SlimefunItemStack NETHER_DIRT = Theme.themedSlimefunItemStack(
         "NPS_NETHER_DIRT",
         Material.DIRT,
         Theme.CRUX,
-        "Nether Dirt",
-        "The Netherrack has been purified to",
-        "a point in which it is a good soil."
+        "下界泥土",
+        "这块下界岩已经被净化到一定程度,",
+        "它能被视为真正的泥土."
     );
 
     public static final SlimefunItemStack NETHER_GRASS = Theme.themedSlimefunItemStack(
         "NPS_NETHER_GRASS",
         Material.GRASS_BLOCK,
         Theme.CRUX,
-        "Nether Grass",
-        "This grass is positively healthy."
+        "下界草",
+        "这种草非常健康."
     );
 
     public static final SlimefunItemStack JUNGLE_CRUX = Theme.themedSlimefunItemStack(
         "NPS_JUNGLE_CRUX",
         Material.MOSS_BLOCK,
         Theme.CRUX,
-        "Jungle Crux",
+        "丛林结构",
         "This soil is suitable for more",
         "temperate plants."
     );
