@@ -20,7 +20,7 @@ public final class NpsGroups {
         Keys.newKey("main"),
         new CustomItemStack(
             new ItemStack(Material.WITHER_ROSE),
-            Theme.MAIN.color("Netheopoiesis")
+            Theme.MAIN.color("下界净灵")
         )
     );
 
@@ -28,7 +28,7 @@ public final class NpsGroups {
         Keys.newKey("crafting"),
         new CustomItemStack(
             new ItemStack(Material.STICK),
-            Theme.MAIN.color("Netheopoiesis Crafting Items")
+            Theme.MAIN.color("下界净灵 - 合成材料")
         )
     );
 
@@ -36,7 +36,7 @@ public final class NpsGroups {
         Keys.newKey("tools"),
         new CustomItemStack(
             new ItemStack(Material.COMPASS),
-            Theme.MAIN.color("Netheopoiesis Tools")
+            Theme.MAIN.color("下界净灵 - 工具")
         )
     );
 
@@ -44,7 +44,7 @@ public final class NpsGroups {
         Keys.newKey("seeds"),
         new CustomItemStack(
             new ItemStack(Material.MELON_SEEDS),
-            Theme.MAIN.color("Netheopoiesis Seeds")
+            Theme.MAIN.color("下界净灵 - 种子")
         )
     );
 
@@ -52,7 +52,7 @@ public final class NpsGroups {
         Keys.newKey("crux"),
         new CustomItemStack(
             new ItemStack(Material.MYCELIUM),
-            Theme.MAIN.color("Netheopoiesis Crux'")
+            Theme.MAIN.color("下界净灵 - 结构")
         )
     );
 
@@ -60,7 +60,7 @@ public final class NpsGroups {
         Keys.newKey("discoveries"),
         new CustomItemStack(
             new ItemStack(Material.WHEAT_SEEDS),
-            Theme.MAIN.color("Breeding Discoveries'")
+            Theme.MAIN.color("培育笔记")
         )
     );
 
@@ -68,7 +68,7 @@ public final class NpsGroups {
         Keys.newKey("guide"),
         new CustomItemStack(
             new ItemStack(Material.BOOKSHELF),
-            Theme.MAIN.color("Purification Information")
+            Theme.MAIN.color("净化协议")
         )
     );
 

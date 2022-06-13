@@ -36,7 +36,7 @@ public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
     private PlantRegistry plantRegistry;
 
     public Netheopoiesis() {
-        this.username = "Sefiraat";
+        this.username = "SlimefunGuguProject";
         this.repo = "Netheopoiesis";
         this.branch = "master";
     }

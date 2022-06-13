@@ -39,12 +39,12 @@ public class PurificationBarometer extends SimpleSlimefunItem<ItemUseHandler> {
             final ItemStack barometer = event.getItem();
 
             if (ItemStackUtils.isOnCooldown(barometer)) {
-                player.sendMessage(Theme.WARNING + "This item is still on cooldown.");
+                player.sendMessage(Theme.WARNING + "该物品仍在冷却中.");
                 return;
             }
 
             final String message = Theme.CLICK_INFO.asTitle(
-                "Chunk Purification Amount",
+                "当前区块净化值",
                 Purification.getValue(chunk)
             );
             player.sendMessage(message);

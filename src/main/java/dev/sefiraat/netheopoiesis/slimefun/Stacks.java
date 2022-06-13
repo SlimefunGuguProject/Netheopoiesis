@@ -27,19 +27,20 @@ public final class Stacks {
         "NPS_ADDON_BERRY",
         Material.SWEET_BERRIES,
         Theme.CRAFTING,
-        "Addon Berry",
-        "A deliciously sweet berry that",
-        "can be made into jam."
+        "附加浆果",
+        "一种美味的甜浆果,",
+        "可以被制成果酱."
     );
 
     public static final SlimefunItemStack ADDON_JAM = Theme.themedSlimefunItemStack(
         "NPS_ADDON_JAM",
         ItemStackUtils.potion(Color.RED),
         Theme.CRAFTING,
-        "Addon Jam",
-        "A very sweet jam.",
-        "For some reason, it feels rushed",
-        "and incomplete."
+        "附加果酱",
+        "一种非常甜的果酱.",
+        "不知为何, 它看上去像赶制的.",
+        "(这个物品的英文名是Addon Jam,",
+        "也是本次附属竞赛的名称)"
     );
 
     // endregion
@@ -50,11 +51,10 @@ public final class Stacks {
         "NPS_CRUDE_HARVESTING_TOOL",
         Material.PRISMARINE_SHARD,
         Theme.TOOL,
-        "Crude Harvesting Tool",
-        "This tool will harvest plants",
-        "where possible.",
-        "This one is very shoddy and won't",
-        "last long",
+        "粗制收获工具",
+        "这个工具可以收获植物.",
+        "似乎是个劣质品,",
+        "没法用太久.",
         "",
         LoreBuilder.usesLeft(25)
     );
@@ -63,11 +63,10 @@ public final class Stacks {
         "NPS_HARVESTING_TOOL",
         Material.PRISMARINE_SHARD,
         Theme.TOOL,
-        "Harvesting Tool",
-        "This tool will harvest plants",
-        "where possible.",
-        "This one is sturdier but still won't",
-        "last long",
+        "收获工具",
+        "这个工具可以收获植物.",
+        "它更加结实,",
+        "但也没法用太久.",
         "",
         LoreBuilder.usesLeft(150)
     );
@@ -76,16 +75,16 @@ public final class Stacks {
         "NPS_PURIFICATION_BAROMETER",
         Material.CLOCK,
         Theme.TOOL,
-        "Purification Barometer",
-        "When used, this tool will tell you",
-        "how purified the current chunk is."
+        "净化测量仪",
+        "使用后, 可以获取",
+        "当前区块的净化值."
     );
 
     public static final SlimefunItemStack PURIFICATION_SCANNER = Theme.themedSlimefunItemStack(
         "NPS_PURIFICATION_SCANNER",
         Material.BRICK,
         Theme.TOOL,
-        "Purification Scanner",
+        "净化扫描仪",
         "When used on a relevant block or plant,",
         "this tool will tell you what its",
         "purifying effect on the world is."
