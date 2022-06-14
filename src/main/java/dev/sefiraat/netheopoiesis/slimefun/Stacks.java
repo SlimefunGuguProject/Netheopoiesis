@@ -146,9 +146,9 @@ public final class Stacks {
         "NPS_VORACIOUS_DIRT",
         Material.ROOTED_DIRT,
         Theme.CRUX,
-        "贪婪的泥土",
+        "贪婪泥土",
         "这块下界岩已经被净化到一定程度,",
-        "它已经转化为活跃的泥土."
+        "它已经转化为比较活跃的泥土."
     );
 
     public static final SlimefunItemStack NETHER_DIRT = Theme.themedSlimefunItemStack(
@@ -164,8 +164,8 @@ public final class Stacks {
         "NPS_NETHER_GRASS",
         Material.GRASS_BLOCK,
         Theme.CRUX,
-        "下界草",
-        "这种草非常健康."
+        "下界草方块",
+        "这个草方块非常健康."
     );
 
     public static final SlimefunItemStack JUNGLE_CRUX = Theme.themedSlimefunItemStack(
@@ -206,7 +206,7 @@ public final class Stacks {
         "NPS_STONEY_CRUX",
         Material.STONE,
         Theme.CRUX,
-        "石头结构",
+        "岩石结构",
         "虽然并不适合种植,",
         "但万物都有存在的理由."
     );
@@ -241,7 +241,7 @@ public final class Stacks {
         Skulls.SEED_BLUE.getPlayerHead(),
         Theme.PURIFYING_SEED,
         "净化之种",
-        new String[]{"当这个种子完全生长时,", "会缓慢的净化周围的方块."},
+        new String[]{"这种植物成熟后,", "会缓慢的净化周围的环境."},
         getCanBePlacedOnLore("下界岩", "诡异菌岩", "绯红菌岩")
     );
 
@@ -250,8 +250,8 @@ public final class Stacks {
         Skulls.SEED_BLUE.getPlayerHead(),
         Theme.PURIFYING_SEED,
         "灵魂之种",
-        new String[]{"This seed, when fully grown,", "will further push the purification", "process of nearby blocks."},
-        getCanBePlacedOnLore("Basic Purified Netherrack (or better)")
+        new String[]{"这种植物成熟后,", "会进一步净化周围的环境."},
+        getCanBePlacedOnLore("基本净化的下界岩", "(或净化等级更高的)")
     );
 
     public static final SlimefunItemStack SPIRIT_SEED = Theme.themedSeed(
@@ -259,80 +259,80 @@ public final class Stacks {
         Skulls.SEED_BLUE.getPlayerHead(),
         Theme.PURIFYING_SEED,
         "精神之种",
-        new String[]{"This seed, when fully grown,", "will allow an even deeper purification", "for nearby blocks."},
-        getCanBePlacedOnLore("Purified Netherrack (or better)")
+        new String[]{"这种植物成熟后,", "会深入净化周围的环境."},
+        getCanBePlacedOnLore("净化的下界岩", "(或净化等级更高的)")
     );
 
     public static final SlimefunItemStack SAINTLY_SEED = Theme.themedSeed(
         "NPS_SAINTLY_SEED",
         Skulls.SEED_BLUE.getPlayerHead(),
         Theme.PURIFYING_SEED,
-        "Saintly Seed",
-        new String[]{"This seed, when fully grown,", "will remove nearly all of the", "Nether's taint for nearby blocks."},
-        getCanBePlacedOnLore("Voracious Dirt (or better)")
+        "圣洁之种",
+        new String[]{"这种植物成熟后,", "会清除周围环境中所有的下界元素."},
+        getCanBePlacedOnLore("贪婪泥土", "(或净化等级更高的)")
     );
 
     public static final SlimefunItemStack EDEN_SEED = Theme.themedSeed(
         "NPS_EDEN_SEED",
         Skulls.SEED_BLUE.getPlayerHead(),
         Theme.PURIFYING_SEED,
-        "Eden Seed",
-        new String[]{"This seed, when fully grown,", "will create and eden in the Nether."},
-        getCanBePlacedOnLore("Nether Dirt (or better)")
+        "伊甸之种",
+        new String[]{"这种植物成熟后,", "会在下界创建伊甸园."},
+        getCanBePlacedOnLore("下界泥土", "(或净化等级更高的)")
     );
 
     public static final SlimefunItemStack JUNGLE_SEED = Theme.themedSeed(
         "NPS_JUNGLE_SEED",
         Skulls.SEED_GREEN.getPlayerHead(),
         Theme.PURIFYING_SEED,
-        "Jungle Seed",
-        new String[]{"This seed, when fully grown,", "will begin the process of creating", "a jungle."},
-        getCanBePlacedOnLore("Nether Grass or Jungle")
+        "丛林之种",
+        new String[]{"这种植物成熟后,", "会在周围生成丛林."},
+        getCanBePlacedOnLore("下界草方块", "丛林结构")
     );
 
     public static final SlimefunItemStack BEACH_SEED = Theme.themedSeed(
         "NPS_BEACH_SEED",
         Skulls.SEED_YELLOW.getPlayerHead(),
         Theme.PURIFYING_SEED,
-        "Beach Seed",
-        new String[]{"This seed, when fully grown,", "will begin the process of creating", "a beach."},
-        getCanBePlacedOnLore("Nether Grass or Beach")
+        "海滩之种",
+        new String[]{"这种植物成熟后,", "会在周围生成海滩."},
+        getCanBePlacedOnLore("下界草方块", "海滩结构")
     );
 
     public static final SlimefunItemStack DESERT_SEED = Theme.themedSeed(
         "NPS_DESERT_SEED",
         Skulls.SEED_RED.getPlayerHead(),
         Theme.PURIFYING_SEED,
-        "Desert Seed",
-        new String[]{"This seed, when fully grown,", "will begin the process of creating", "a desert."},
-        getCanBePlacedOnLore("Nether Grass or Desert")
+        "沙漠之种",
+        new String[]{"这种植物成熟后,", "会在周围生成沙漠."},
+        getCanBePlacedOnLore("下界草方块", "沙漠结构")
     );
 
     public static final SlimefunItemStack SNOW_SEED = Theme.themedSeed(
         "NPS_SNOW_SEED",
         Skulls.SEED_CYAN.getPlayerHead(),
         Theme.PURIFYING_SEED,
-        "Snow Seed",
-        new String[]{"This seed, when fully grown,", "will begin the process of creating a", "cold wonderland."},
-        getCanBePlacedOnLore("Nether Grass (or better)")
+        "雪地之种",
+        new String[]{"这种植物成熟后,", "会在周围生成雪地."},
+        getCanBePlacedOnLore("下界草方块", "(或净化等级更高的)")
     );
 
     public static final SlimefunItemStack STONEY_SEED = Theme.themedSeed(
         "NPS_STONEY_SEED",
         Skulls.SEED_PURPLE.getPlayerHead(),
         Theme.PURIFYING_SEED,
-        "Stoney Seed",
-        new String[]{"This seed, when fully grown,", "will begin the process of creating", "a stoney plain."},
-        getCanBePlacedOnLore("Nether Grass or Stoney")
+        "岩石之种",
+        new String[]{"这种植物成熟后,", "会在周围生成岩石."},
+        getCanBePlacedOnLore("下界草方块", "岩石结构")
     );
 
     public static final SlimefunItemStack SWAMP_SEED = Theme.themedSeed(
         "NPS_SWAMP_SEED",
         Skulls.SEED_GREEN.getPlayerHead(),
         Theme.PURIFYING_SEED,
-        "Swamp Seed",
-        new String[]{"This seed, when fully grown,", "will begin the process of creating", "a damp swamp."},
-        getCanBePlacedOnLore("Nether Grass or Swamp")
+        "沼泽之种",
+        new String[]{"这种植物成熟后,", "will begin the process of creating", "a damp swamp."},
+        getCanBePlacedOnLore("下界草方块", "沼泽结构")
     );
 
     // endregion
@@ -343,7 +343,7 @@ public final class Stacks {
         "NPS_SPINDLE_SEED",
         Skulls.SEED_ORANGE.getPlayerHead(),
         Theme.SEED,
-        "Spindle Seed",
+        "橡木之种",
         new String[]{"This seed, when fully grown,", "will grow it's roots out which", "can be harvested."},
         getCanBePlacedOnLore("Basic Purified Netherrack (or better)")
     );

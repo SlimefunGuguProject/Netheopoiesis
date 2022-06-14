@@ -175,12 +175,16 @@ public class DiscoveriesFlexGroup extends FlexItemGroup {
                                int returnPage,
                                BreedingPair pair
     ) {
-        // Back Button
+        // Sound
+        menu.addMenuOpeningHandler((player) -> player.playSound(player.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.0F, 1.0F));
+
+        // Back
         menu.replaceExistingItem(
             GUIDE_BACK,
             ChestMenuUtils.getBackButton(
                 p,
-                Slimefun.getLocalization().getMessage("guide.back.guide")
+                "",
+                ChatColor.GRAY + Slimefun.getLocalization().getMessage(p, "guide.back.guide")
             )
         );
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
@@ -280,9 +284,9 @@ public class DiscoveriesFlexGroup extends FlexItemGroup {
             Material.BARRIER,
             Theme.DISCOVEREY,
             seed.getItemName(),
-            Theme.ERROR + "Not Discovered",
-            "You have not yet discovered how",
-            "to breed this plant!"
+            Theme.ERROR + "未发现",
+            "你还没有实验出",
+            "如何培育这种植物!"
         );
     }
 
@@ -290,7 +294,7 @@ public class DiscoveriesFlexGroup extends FlexItemGroup {
     public static ItemStack getGrowthRate(@Nonnull NetherSeed seed) {
         return new CustomItemStack(
             Material.WHEAT_SEEDS,
-            Theme.CLICK_INFO.asTitle("Growth Rate", FORMAT.format(seed.getGrowthRate()))
+            Theme.CLICK_INFO.asTitle("生长速率", FORMAT.format(seed.getGrowthRate()))
         );
     }
 
@@ -298,7 +302,7 @@ public class DiscoveriesFlexGroup extends FlexItemGroup {
     public static ItemStack getPurificationValue(@Nonnull NetherSeed seed) {
         return new CustomItemStack(
             Material.NETHERRACK,
-            Theme.CLICK_INFO.asTitle("Purification Value", seed.getPurificationValue())
+            Theme.CLICK_INFO.asTitle("净化值", seed.getPurificationValue())
         );
     }
 }
