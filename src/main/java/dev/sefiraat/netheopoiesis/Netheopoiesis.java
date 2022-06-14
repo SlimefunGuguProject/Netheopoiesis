@@ -71,7 +71,7 @@ public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
 
     public void tryUpdate() {
         if (getConfig().getBoolean("auto-update")
-            && getDescription().getVersion().startsWith("DEV")
+            && getDescription().getVersion().startsWith("Build")
         ) {
             new GuizhanBuildsUpdater(this, getFile(), username, repo, branch, false, "zh-CN").start();
         }
