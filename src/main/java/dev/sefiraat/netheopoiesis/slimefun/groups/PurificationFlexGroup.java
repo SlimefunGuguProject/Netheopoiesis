@@ -12,8 +12,10 @@ import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -43,109 +45,108 @@ public class PurificationFlexGroup extends FlexItemGroup {
 
     private static final ItemStack SLEEP_STACK = new CustomItemStack(
         Material.BLACK_BED,
-        Theme.MAIN + "Sleeping in the Nether",
-        Theme.PASSIVE.apply("You can finally sleep in the"),
-        Theme.PASSIVE.apply("Nether! But check the purification"),
-        Theme.PASSIVE.apply("level first, else you may explode!"),
+        Theme.MAIN + "在下界睡觉",
+        Theme.PASSIVE.apply("你终于能在下界睡觉了!"),
+        Theme.PASSIVE.apply("但是, 先看一眼净化等级,"),
+        Theme.PASSIVE.apply("不然你就会爆炸的!"),
         "",
-        Theme.CLICK_INFO.asTitle("Purification Required", Purification.SLEEP_IN_BED)
+        Theme.CLICK_INFO.asTitle("需要净化值达到", Purification.SLEEP_IN_BED)
     );
 
     private static final ItemStack WATER_STACK = new CustomItemStack(
         Material.BUCKET,
-        Theme.MAIN + "Water in the Nether",
-        Theme.PASSIVE.apply("With a high enough purification"),
-        Theme.PASSIVE.apply("value, you will be able to place"),
-        Theme.PASSIVE.apply("water in the Nether, allowing you"),
-        Theme.PASSIVE.apply("to grow overworld crops."),
-        Theme.PASSIVE.apply("Water also adds 1 to the purification value"),
+        Theme.MAIN + "在下界放水",
+        Theme.PASSIVE.apply("当净化等级足够高时,"),
+        Theme.PASSIVE.apply("你就可以在下界中放水了."),
+        Theme.PASSIVE.apply("你可以用来种植主世界的植物."),
+        Theme.PASSIVE.apply("水也可以增加净化值."),
         "",
-        Theme.CLICK_INFO.asTitle("Purification Required", Purification.PLACE_WATER)
+        Theme.CLICK_INFO.asTitle("需要净化值达到", Purification.PLACE_WATER)
     );
 
     private static final ItemStack REGEN_STACK = new CustomItemStack(
         ItemStackUtils.enchantedItemStack(Material.APPLE),
-        Theme.MAIN + "Regeneration Aura",
-        Theme.PASSIVE.apply("With a high enough purification"),
-        Theme.PASSIVE.apply("value, you will be be enveloped"),
-        Theme.PASSIVE.apply("in a healing mist that increases"),
-        Theme.PASSIVE.apply("in power as the level gets higher"),
+        Theme.MAIN + "恢复光环",
+        Theme.PASSIVE.apply("当净化等级足够高时,"),
+        Theme.PASSIVE.apply("你会被治疗迷雾笼罩,"),
+        Theme.PASSIVE.apply("效果会随着净化等级提升"),
+        Theme.PASSIVE.apply("而增强。"),
         "",
-        Theme.CLICK_INFO.asTitle("Regen 1", Purification.REGEN_1),
-        Theme.CLICK_INFO.asTitle("Regen 2", Purification.REGEN_2),
-        Theme.CLICK_INFO.asTitle("Regen 3", Purification.REGEN_3)
+        Theme.PASSIVE.apply("净化值需求:"),
+        Theme.CLICK_INFO.asTitle("生命恢复1", Purification.REGEN_1),
+        Theme.CLICK_INFO.asTitle("生命恢复2", Purification.REGEN_2),
+        Theme.CLICK_INFO.asTitle("生命恢复3", Purification.REGEN_3)
     );
 
     private static final ItemStack MOBS_1_STACK = new CustomItemStack(
         Material.SPAWNER,
-        Theme.MAIN + "Mob Spawning 1",
-        Theme.PASSIVE.apply("With a high enough purification"),
-        Theme.PASSIVE.apply("value, some mobs will no longer"),
-        Theme.PASSIVE.apply("spawn, instead spawning an overworld"),
-        Theme.PASSIVE.apply("mobs. Passive or Hostile depending"),
-        Theme.PASSIVE.apply("on the time of day."),
-        Theme.PASSIVE.apply("More mobs as your value increases"),
+        Theme.MAIN + "生物生成 1",
+        Theme.PASSIVE.apply("当净化等级足够高时,"),
+        Theme.PASSIVE.apply("某些下界生物将不再生成,"),
+        Theme.PASSIVE.apply("取而代之,生成主世界生物."),
+        Theme.PASSIVE.apply("当下界为白天(?)时, 生成友好生物."),
+        Theme.PASSIVE.apply("当下界为夜间时, 生成敌对生物."),
+        Theme.PASSIVE.apply("净化等级提升会取代更多生物."),
         "",
-        Theme.CLICK_INFO.asTitle("Magma Cube", Purification.SWAP_MAGMA_CUBE),
-        Theme.CLICK_INFO.asTitle("Blaze", Purification.SWAP_BLAZE),
-        Theme.CLICK_INFO.asTitle("Zombified Piglin", Purification.SWAP_ZOMBIFIED_PIGLIN),
-        Theme.CLICK_INFO.asTitle("Hoglin", Purification.SWAP_HOGLIN),
-        Theme.CLICK_INFO.asTitle("Piglin Brute", Purification.SWAP_PIGLIN_BRUTE),
-        Theme.CLICK_INFO.asTitle("Ghast", Purification.SWAP_GHAST),
-        Theme.CLICK_INFO.asTitle("Wither Skeleton", Purification.SWAP_WITHER_SKELETON)
+        Theme.PASSIVE.apply("净化值需求:"),
+        Theme.CLICK_INFO.asTitle("岩浆怪", Purification.SWAP_MAGMA_CUBE),
+        Theme.CLICK_INFO.asTitle("烈焰人", Purification.SWAP_BLAZE),
+        Theme.CLICK_INFO.asTitle("僵尸猪灵", Purification.SWAP_ZOMBIFIED_PIGLIN),
+        Theme.CLICK_INFO.asTitle("疣猪兽", Purification.SWAP_HOGLIN),
+        Theme.CLICK_INFO.asTitle("猪灵蛮兵", Purification.SWAP_PIGLIN_BRUTE),
+        Theme.CLICK_INFO.asTitle("恶魂", Purification.SWAP_GHAST),
+        Theme.CLICK_INFO.asTitle("凋零骷髅", Purification.SWAP_WITHER_SKELETON)
     );
 
     private static final ItemStack MOBS_2_STACK = new CustomItemStack(
         Material.SPAWNER,
-        Theme.MAIN + "Mob Spawning 2",
-        Theme.PASSIVE.apply("With a high enough purification"),
-        Theme.PASSIVE.apply("value, certain passive mobs will"),
-        Theme.PASSIVE.apply("spawn around the player."),
-        Theme.PASSIVE.apply("More mobs as your value increases."),
+        Theme.MAIN + "生物生成 2",
+        Theme.PASSIVE.apply("当净化等级足够高时,"),
+        Theme.PASSIVE.apply("这些友好生物将生成在玩家附近."),
+        Theme.PASSIVE.apply("净化等级提升会生成更多生物."),
         "",
-        Theme.CLICK_INFO.asTitle("Squid", Purification.SPAWN_SQUID),
-        Theme.CLICK_INFO.asTitle("Salmon", Purification.SPAWN_SALMON),
-        Theme.CLICK_INFO.asTitle("Cod", Purification.SPAWN_COD),
-        Theme.CLICK_INFO.asTitle("Pufferfish", Purification.SPAWN_PUFFER_FISH),
-        Theme.CLICK_INFO.asTitle("Tropical Fish", Purification.SPAWN_TROPICAL_FISH),
-        Theme.CLICK_INFO.asTitle("Axolotl", Purification.SPAWN_AXOLOTL),
-        Theme.CLICK_INFO.asTitle("Wandering Trader", Purification.WANDERING_TRADER)
+        Theme.PASSIVE.apply("净化值需求:"),
+        Theme.CLICK_INFO.asTitle("鱿鱼", Purification.SPAWN_SQUID),
+        Theme.CLICK_INFO.asTitle("鲑鱼", Purification.SPAWN_SALMON),
+        Theme.CLICK_INFO.asTitle("鳕鱼", Purification.SPAWN_COD),
+        Theme.CLICK_INFO.asTitle("河豚", Purification.SPAWN_PUFFER_FISH),
+        Theme.CLICK_INFO.asTitle("热带鱼", Purification.SPAWN_TROPICAL_FISH),
+        Theme.CLICK_INFO.asTitle("美西螈", Purification.SPAWN_AXOLOTL),
+        Theme.CLICK_INFO.asTitle("流浪商人", Purification.WANDERING_TRADER)
     );
 
     private static final ItemStack PIGLIN_STACK = new CustomItemStack(
         Material.PIGLIN_SPAWN_EGG,
-        Theme.MAIN + "Friendly Mobs",
-        Theme.PASSIVE.apply("With a high enough purification"),
-        Theme.PASSIVE.apply("value, nearby piglins will be"),
-        Theme.PASSIVE.apply("so happy with your progress"),
-        Theme.PASSIVE.apply("they will stop being hostile."),
-        Theme.PASSIVE.apply("Other mobs will soon follow suit."),
+        Theme.MAIN + "友好生物",
+        Theme.PASSIVE.apply("当净化等级足够高时,"),
+        Theme.PASSIVE.apply("附近的猪灵将不再视你为敌,"),
+        Theme.PASSIVE.apply("它们会非常满意你所做的一切,"),
+        Theme.PASSIVE.apply("其他的生物也会紧随其后."),
         "",
-        Theme.CLICK_INFO.asTitle("Piglins", Purification.FRIENDLY_PIGLINS),
-        Theme.CLICK_INFO.asTitle("Hoglins", Purification.FRIENDLY_HOGLINS)
+        Theme.PASSIVE.apply("净化值需求:"),
+        Theme.CLICK_INFO.asTitle("猪灵", Purification.FRIENDLY_PIGLINS),
+        Theme.CLICK_INFO.asTitle("疣猪兽", Purification.FRIENDLY_HOGLINS)
     );
 
     private static final ItemStack BARTERING_STACK = new CustomItemStack(
         Material.GOLD_INGOT,
-        Theme.MAIN + "Better-Barter",
-        Theme.PASSIVE.apply("As your purification value"),
-        Theme.PASSIVE.apply("increases, you will have an"),
-        Theme.PASSIVE.apply("increased chance to double your"),
-        Theme.PASSIVE.apply("output from bartering."),
+        Theme.MAIN + "更好的交易",
+        Theme.PASSIVE.apply("随着净化等级的提升,"),
+        Theme.PASSIVE.apply("你会有更高的几率"),
+        Theme.PASSIVE.apply("从猪灵交易中获得双倍物品."),
         "",
-        Theme.CLICK_INFO.asTitle("Double Chance: ", "(Purification Value / " + Purification.FRIENDLY_PIGLINS + ") * 5%")
+        Theme.CLICK_INFO.asTitle("双倍概率", "(净化值 / " + Purification.FRIENDLY_PIGLINS + ") * 5%")
     );
 
     private static final ItemStack ENDER_CAKE = new CustomItemStack(
         Material.CAKE,
-        Theme.MAIN + "To the End!",
-        Theme.PASSIVE.apply("Using materials gathered from your"),
-        Theme.PASSIVE.apply("new Nether plants, you can make an"),
-        Theme.PASSIVE.apply("Ender Cake. If you have the required"),
-        Theme.PASSIVE.apply("purification level, you will be transported"),
-        Theme.PASSIVE.apply("to the end."),
+        Theme.MAIN + "深入末地!",
+        Theme.PASSIVE.apply("你可以从全新的下界植物中"),
+        Theme.PASSIVE.apply("获取材料, 来制作末影蛋糕."),
+        Theme.PASSIVE.apply("如果净化等级足够, 你就能够"),
+        Theme.PASSIVE.apply("传送到末地."),
         "",
-        Theme.CLICK_INFO.asTitle("Purification Required", Purification.ENDER_CAKE)
+        Theme.CLICK_INFO.asTitle("需要净化值达到", Purification.ENDER_CAKE)
     );
 
     public PurificationFlexGroup(NamespacedKey key, ItemStack item) {
@@ -161,7 +162,7 @@ public class PurificationFlexGroup extends FlexItemGroup {
     @Override
     @ParametersAreNonnullByDefault
     public void open(Player p, PlayerProfile profile, SlimefunGuideMode mode) {
-        final ChestMenu chestMenu = new ChestMenu(Theme.MAIN.getColor() + "Purification");
+        final ChestMenu chestMenu = new ChestMenu(Theme.MAIN.getColor() + "净化协议");
 
         for (int slot : HEADER) {
             chestMenu.addItem(slot, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);
@@ -183,12 +184,16 @@ public class PurificationFlexGroup extends FlexItemGroup {
             menu.addMenuClickHandler(slot, ((player1, i, itemStack, clickAction) -> false));
         }
 
+        // Sound
+        menu.addMenuOpeningHandler((p) -> p.playSound(p.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.0F, 1.0F));
+
         // Back
         menu.replaceExistingItem(
             GUIDE_BACK,
             ChestMenuUtils.getBackButton(
                 player,
-                Slimefun.getLocalization().getMessage("guide.back.guide")
+                "",
+                ChatColor.GRAY + Slimefun.getLocalization().getMessage(player, "guide.back.guide")
             )
         );
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {

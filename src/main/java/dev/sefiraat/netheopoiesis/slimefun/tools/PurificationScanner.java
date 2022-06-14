@@ -44,7 +44,7 @@ public class PurificationScanner extends SlimefunItem {
             final ItemStack analyser = event.getItem();
 
             if (ItemStackUtils.isOnCooldown(analyser)) {
-                player.sendMessage(Theme.WARNING + "This item is still on cooldown.");
+                player.sendMessage(Theme.WARNING + "该物品仍在冷却中.");
                 return;
             }
 
@@ -54,7 +54,7 @@ public class PurificationScanner extends SlimefunItem {
                 && ProtectionUtils.hasPermission(player, block, Interaction.INTERACT_BLOCK)
             ) {
                 final String messageValue = Theme.CLICK_INFO.asTitle(
-                    "Purification Value",
+                    "净化值",
                     object.getPurificationValue()
                 );
                 player.sendMessage(messageValue);

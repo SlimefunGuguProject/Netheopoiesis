@@ -35,9 +35,9 @@ public class PlayerSleepListener implements Listener {
             if (TimePeriod.isNight(world)) {
                 player.sleep(block.getLocation(), true);
                 player.setBedSpawnLocation(block.getLocation());
-                player.sendMessage(ChatColor.WHITE + "Respawn point set");
+                player.sendMessage(ChatColor.WHITE + "已设置重生点");
             } else {
-                player.sendMessage(ChatColor.WHITE + "You can only sleep at night or during thunderstorms");
+                player.sendMessage(ChatColor.WHITE + "你只能在夜间或者雷雨天睡觉");
             }
 
         }

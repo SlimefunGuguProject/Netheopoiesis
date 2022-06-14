@@ -7,7 +7,7 @@ import dev.sefiraat.netheopoiesis.managers.RunnableManager;
 import dev.sefiraat.netheopoiesis.managers.SupportedPluginManager;
 import dev.sefiraat.netheopoiesis.slimefun.Items;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -36,7 +36,7 @@ public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
     private PlantRegistry plantRegistry;
 
     public Netheopoiesis() {
-        this.username = "Sefiraat";
+        this.username = "SlimefunGuguProject";
         this.repo = "Netheopoiesis";
         this.branch = "master";
     }
@@ -71,11 +71,9 @@ public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
 
     public void tryUpdate() {
         if (getConfig().getBoolean("auto-update")
-            && getDescription().getVersion().startsWith("DEV")
+            && getDescription().getVersion().startsWith("Build")
         ) {
-            String updateLocation = MessageFormat.format("{0}/{1}/{2}", this.username, this.repo, this.branch);
-            GitHubBuildsUpdater updater = new GitHubBuildsUpdater(this, getFile(), updateLocation);
-            updater.start();
+            new GuizhanBuildsUpdater(this, getFile(), username, repo, branch, false, "zh-CN").start();
         }
     }
 

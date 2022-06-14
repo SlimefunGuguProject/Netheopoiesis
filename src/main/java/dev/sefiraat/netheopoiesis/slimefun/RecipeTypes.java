@@ -22,9 +22,9 @@ public final class RecipeTypes {
         Theme.themedItemStack(
             Material.WITHER_ROSE,
             Theme.RECIPE_TYPE,
-            "Nether Purification",
-            "These items are made by purifying the Nether.",
-            "This is done by planting Purifying Seeds."
+            "净化下界",
+            "该物品可以通过净化下界获得.",
+            "种植净化之种以开始净化."
         )
     );
 
@@ -34,8 +34,8 @@ public final class RecipeTypes {
         Theme.themedItemStack(
             Material.PRISMARINE_SHARD,
             Theme.RECIPE_TYPE,
-            "Plant Harvesting",
-            "This item can be harvested from a plant."
+            "收获植物",
+            "该物品可以通过收获植物获得."
         )
     );
 
@@ -45,17 +45,18 @@ public final class RecipeTypes {
         Theme.themedItemStack(
             Material.FLOWER_POT,
             Theme.RECIPE_TYPE,
-            "Plant Breeding",
-            "This seed is found via breeding.",
-            "You breed plants by placing",
-            "two plants down with an air block",
-            "between them.",
+            "培育植物",
+            "这个种子可以通过培育获得.",
             "",
-            "The breeding dictionary can be used",
-            "to track your discoveries.",
+            "你需要将两株植物放在一起,",
+            "中间间隔一格空气,",
+            "来进行培育.",
             "",
-            "Hint: Black particles mean the",
-            "two plants CANNOT breed."
+            "你可以通过培育笔记",
+            "来查看所有已发现的培育.",
+            "",
+            "提示: 黑色粒子代表",
+            "两株植物不能进行培育."
         )
     );
 
@@ -65,8 +66,8 @@ public final class RecipeTypes {
         Theme.themedItemStack(
             Material.BROWN_DYE,
             Theme.RECIPE_TYPE,
-            "World Drop",
-            "Drops from blocks when broken in the world."
+            "方块掉落物",
+            "通过破坏方块获得."
         )
     );
 }
