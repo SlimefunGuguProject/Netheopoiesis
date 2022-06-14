@@ -2,7 +2,7 @@
 <img width="800" src="https://github.com/Sefiraat/Netheopoiesis/blob/master/images/logo/logo.svg"><br><br>
 </p>
 
-# Netheopoiesis
+# Netheopoiesis - 下界乌托邦
 
 Netheopoiesis 是 Slimefun Addon Jam 2022 的参赛作品，由 Sefiraat 和 J3fftw 开发。
 
@@ -13,6 +13,19 @@ Netheopoiesis 是 Slimefun Addon Jam 2022 的参赛作品，由 Sefiraat 和 J3f
 - 让下界变成一个更舒适 (也更安全！), 甚至可以称之为家的地方。
 
 关于机制和植物的详细介绍可以在[文档](https://docs.sefiraat.dev/netheopoiesis/purification)中找到。
+
+## 下载
+
+点击这里下载 Netheopoiesis: [下载 Netheopoiesis](https://builds.guizhanss.net/SlimefunGuguProject/Netheopoiesis/master)
+
+<p align="center">
+  <a href="https://github.com/SlimefunGuguProject/Netheopoiesis/actions/workflows/maven.yml">
+    <img src="https://github.com/SlimefunGuguProject/Netheopoiesis/actions/workflows/maven.yml/badge.svg" alt="Java CI"/>
+  </a>
+  <a href="https://builds.guizhanss.net/SlimefunGuguProject/Netheopoiesis/master">
+    <img src="https://builds.guizhanss.net/f/SlimefunGuguProject/Netheopoiesis/master/badge.svg" alt="Build status"/>
+  </a>
+</p>
 
 ## 净化
 

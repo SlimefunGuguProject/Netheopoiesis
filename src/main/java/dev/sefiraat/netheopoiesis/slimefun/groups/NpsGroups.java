@@ -20,7 +20,7 @@ public final class NpsGroups {
         Keys.newKey("main"),
         new CustomItemStack(
             new ItemStack(Material.WITHER_ROSE),
-            Theme.MAIN.color("下界净灵")
+            Theme.MAIN.color("下界乌托邦")
         )
     );
 
@@ -28,7 +28,7 @@ public final class NpsGroups {
         Keys.newKey("crafting"),
         new CustomItemStack(
             new ItemStack(Material.STICK),
-            Theme.MAIN.color("下界净灵 - 合成材料")
+            Theme.MAIN.color("下界乌托邦 - 合成材料")
         )
     );
 
@@ -36,7 +36,7 @@ public final class NpsGroups {
         Keys.newKey("tools"),
         new CustomItemStack(
             new ItemStack(Material.COMPASS),
-            Theme.MAIN.color("下界净灵 - 工具")
+            Theme.MAIN.color("下界乌托邦 - 工具")
         )
     );
 
@@ -44,7 +44,7 @@ public final class NpsGroups {
         Keys.newKey("seeds"),
         new CustomItemStack(
             new ItemStack(Material.MELON_SEEDS),
-            Theme.MAIN.color("下界净灵 - 种子")
+            Theme.MAIN.color("下界乌托邦 - 种子")
         )
     );
 
@@ -52,7 +52,7 @@ public final class NpsGroups {
         Keys.newKey("crux"),
         new CustomItemStack(
             new ItemStack(Material.MYCELIUM),
-            Theme.MAIN.color("下界净灵 - 结构")
+            Theme.MAIN.color("下界乌托邦 - 结构")
         )
     );
 

@@ -18,7 +18,7 @@ import java.util.List;
  */
 public enum Theme {
     // Main Theme
-    MAIN(ChatColor.of("#8a0e0e"), "下界净灵"),
+    MAIN(ChatColor.of("#8a0e0e"), "下界乌托邦"),
     // Basic chat elements
     WARNING(ChatColor.YELLOW, "警告"),
     ERROR(ChatColor.RED, "错误"),
