@@ -6,6 +6,7 @@ import dev.sefiraat.netheopoiesis.listeners.BlockProtectionListener;
 import dev.sefiraat.netheopoiesis.listeners.CrystallineSeedListener;
 import dev.sefiraat.netheopoiesis.listeners.DropListener;
 import dev.sefiraat.netheopoiesis.listeners.FriendlyMobsListener;
+import dev.sefiraat.netheopoiesis.listeners.ManagedMobListener;
 import dev.sefiraat.netheopoiesis.listeners.MobSpawnListener;
 import dev.sefiraat.netheopoiesis.listeners.PlayerSleepListener;
 import dev.sefiraat.netheopoiesis.listeners.SeedPlacementListener;
@@ -22,7 +23,7 @@ public class ListenerManager {
     private static ListenerManager instance;
 
     public ListenerManager() {
-        Preconditions.checkNotNull(instance == null, "Cannot create a new instance of the ListenerManager");
+        Preconditions.checkArgument(instance == null, "Cannot create a new instance of the ListenerManager");
         instance = this;
         addListener(new DropListener());
         addListener(new SeedPlacementListener());
@@ -32,6 +33,7 @@ public class ListenerManager {
         addListener(new FriendlyMobsListener());
         addListener(new BlockProtectionListener());
         addListener(new CrystallineSeedListener());
+        addListener(new ManagedMobListener());
     }
 
     private void addListener(@Nonnull Listener listener) {
