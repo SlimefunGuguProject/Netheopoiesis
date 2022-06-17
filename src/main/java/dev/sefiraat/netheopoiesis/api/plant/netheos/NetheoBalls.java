@@ -7,6 +7,7 @@ import dev.sefiraat.netheopoiesis.implementation.netheos.NetheoBall;
 import dev.sefiraat.netheopoiesis.utils.TextUtils;
 import dev.sefiraat.netheopoiesis.utils.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import net.guizhanss.netheopoiesis.utils.NetheoBallUtils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -330,13 +331,12 @@ public class NetheoBalls {
             "NPS_NETHEO_BALL_" + this.name,
             Material.SNOWBALL,
             Theme.NETHEO_BALL,
-            TextUtils.toTitleCase(this.name) + " Netheo Ball",
-            "A nutritious ball made up from",
-            "ground up plants from the Nether.",
-            "Each has a different effect when eaten.",
-            "Wandering Piglin Traders love these!",
+            NetheoBallUtils.getName(this.name) + " 下界丸子",
+            "由下界植物制成的富含营养的丸子.",
+            "每种丸子食用后都有不同的效果.",
+            "流浪猪灵商人非常喜欢!",
             "",
-            Theme.CLICK_INFO.asTitle("Flavour", 0)
+            Theme.CLICK_INFO.asTitle("风味值", 0)
         );
         final NetheoBall ball = new NetheoBall(
             Groups.BALLS,

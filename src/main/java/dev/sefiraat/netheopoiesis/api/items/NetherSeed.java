@@ -440,16 +440,16 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
             "NPS_PASTE_" + this.getId().replace("NPS_", ""),
             Material.RABBIT_STEW,
             Theme.PASTE,
-            "Netheo Paste: " + ChatColor.stripColor(this.getItemName()),
-            "This paste is highly nutritious and",
-            "loved by Piglins. Can be formed into",
-            "tasty Netheo Balls.",
+            "下界浆糊: " + ChatColor.stripColor(this.getItemName()),
+            "这种江湖富含营养,",
+            "是猪灵的最爱.",
+            "可以做成美味的下界丸子.",
             "",
-            Theme.CLICK_INFO.asTitle("Sweet", this.flavourProfile.getSweet()),
-            Theme.CLICK_INFO.asTitle("Sour", this.flavourProfile.getSour()),
-            Theme.CLICK_INFO.asTitle("Salty", this.flavourProfile.getSalty()),
-            Theme.CLICK_INFO.asTitle("Bitter", this.flavourProfile.getBitter()),
-            Theme.CLICK_INFO.asTitle("Umami", this.flavourProfile.getUmami())
+            Theme.CLICK_INFO.asTitle("甜", this.flavourProfile.getSweet()),
+            Theme.CLICK_INFO.asTitle("酸", this.flavourProfile.getSour()),
+            Theme.CLICK_INFO.asTitle("咸", this.flavourProfile.getSalty()),
+            Theme.CLICK_INFO.asTitle("苦", this.flavourProfile.getBitter()),
+            Theme.CLICK_INFO.asTitle("鲜", this.flavourProfile.getUmami())
         );
         this.crushingDrop = stack;
 

@@ -71,10 +71,9 @@ public class TradesFlexGroup extends FlexItemGroup {
     private static final ItemStack NOT_FOUND = Theme.themedItemStack(
         Material.BARRIER,
         Theme.DISCOVEREY,
-        "Trade not found",
-        Theme.ERROR + "Not Discovered",
-        "You have not yet discovered how",
-        "to breed this plant!"
+        "未知的交易",
+        Theme.ERROR + "未发现",
+        "你还没有发现该交易!"
     );
 
     public TradesFlexGroup(NamespacedKey key, ItemStack item) {
@@ -90,7 +89,7 @@ public class TradesFlexGroup extends FlexItemGroup {
     @Override
     @ParametersAreNonnullByDefault
     public void open(Player p, PlayerProfile profile, SlimefunGuideMode mode) {
-        final ChestMenu chestMenu = new ChestMenu(Theme.MAIN.getColor() + "Trades Found");
+        final ChestMenu chestMenu = new ChestMenu(Theme.MAIN.getColor() + "交易详情");
 
         for (int slot : HEADER) {
             chestMenu.addItem(slot, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);

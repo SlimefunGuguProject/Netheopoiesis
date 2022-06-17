@@ -177,7 +177,7 @@ public class DiscoveriesFlexGroup extends FlexItemGroup {
                                BreedingPair pair
     ) {
         // Sound
-        menu.addMenuOpeningHandler((player) -> player.playSound(player.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.0F, 1.0F));
+        p.playSound(p.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.0F, 1.0F);
 
         // Back
         menu.replaceExistingItem(
@@ -190,6 +190,7 @@ public class DiscoveriesFlexGroup extends FlexItemGroup {
         );
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
             setupPage(player1, profile, mode, menu, returnPage);
+            p.playSound(p.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.0F, 1.0F);
             return false;
         });
 

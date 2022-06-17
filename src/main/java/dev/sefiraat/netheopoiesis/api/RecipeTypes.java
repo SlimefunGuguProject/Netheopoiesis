@@ -82,10 +82,9 @@ public final class RecipeTypes {
         Theme.themedItemStack(
             Material.ANVIL,
             Theme.RECIPE_TYPE,
-            "Tough Crushing",
-            "This item is made by crushing it.",
-            "To crush items, from an Anvil on it from",
-            "a height."
+            "碾碎",
+            "这个物品通过碾碎获得.",
+            "利用铁砧坠落来碾碎物品."
         )
     );
 
@@ -95,11 +94,10 @@ public final class RecipeTypes {
         Theme.themedItemStack(
             Material.QUARTZ,
             Theme.RECIPE_TYPE,
-            "Netheo Mixing",
-            "This item is made by mixing three",
-            "Netheo pastes together.",
-            "Throw the three pastes onto the ground",
-            "and then right click with a Mixing Quartz."
+            "下界混合",
+            "这个物品通过下界混合获得.",
+            "向地上丢出3种下界浆糊,",
+            "然后手持混合石英右键点击."
         )
     );
 
