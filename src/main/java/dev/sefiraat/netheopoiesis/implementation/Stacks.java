@@ -109,6 +109,18 @@ public final class Stacks {
         "不会改变生物群系."
     );
 
+    public static final SlimefunItemStack MIXING_QUARTZ = Theme.themedSlimefunItemStack(
+        "NPS_MIXING_QUARTZ_1",
+        Material.QUARTZ,
+        Theme.TOOL,
+        "混合石英",
+        "在地上丢出3种下界浆糊,",
+        "手持混合石英右键点击",
+        "将它们混合成为下界丸子.",
+        "丸子的类型与风味值取决于",
+        "下界浆糊的类型."
+    );
+
     public static final SlimefunItemStack ENDER_CAKE = Theme.themedSlimefunItemStack(
         "NPS_ENDER_CAKE",
         Material.CAKE,

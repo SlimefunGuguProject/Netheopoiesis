@@ -1,10 +1,11 @@
 package dev.sefiraat.netheopoiesis;
 
+import dev.sefiraat.netheopoiesis.api.plant.netheos.NetheoBalls;
 import dev.sefiraat.netheopoiesis.implementation.Items;
 import dev.sefiraat.netheopoiesis.managers.ConfigManager;
 import dev.sefiraat.netheopoiesis.managers.ListenerManager;
 import dev.sefiraat.netheopoiesis.managers.MobManager;
-import dev.sefiraat.netheopoiesis.managers.RunnableManager;
+import dev.sefiraat.netheopoiesis.managers.TaskManager;
 import dev.sefiraat.netheopoiesis.managers.SupportedPluginManager;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
@@ -31,10 +32,10 @@ public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
     private ConfigManager configManager;
     private SupportedPluginManager supportedPluginManager;
     private ListenerManager listenerManager;
-    private RunnableManager runnableManager;
+    private TaskManager taskManager;
     private MobManager mobManager;
     private Purification purification;
-    private PlantRegistry plantRegistry;
+    private Registry registry;
 
     public Netheopoiesis() {
         this.username = "SlimefunGuguProject";
@@ -46,22 +47,25 @@ public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
     public void onEnable() {
         instance = this;
 
-        getLogger().info("########################################");
-        getLogger().info("    Netheopoiesis by Sefiraat, J3fftw   ");
-        getLogger().info("########################################");
+        getLogger().info("##########################################");
+        getLogger().info("        Netheopoiesis 下界乌托邦            ");
+        getLogger().info("         作者: Sefiraat, J3fftw            ");
+        getLogger().info("        汉化: SlimefunGuguProject          ");
+        getLogger().info("##########################################");
 
         saveDefaultConfig();
+        this.configManager = new ConfigManager();
         tryUpdate();
 
-        this.configManager = new ConfigManager();
         this.supportedPluginManager = new SupportedPluginManager();
         this.listenerManager = new ListenerManager();
-        this.runnableManager = new RunnableManager();
+        this.taskManager = new TaskManager();
         this.mobManager = new MobManager();
         this.purification = new Purification();
-        this.plantRegistry = new PlantRegistry();
+        this.registry = new Registry();
 
         Items.setup(this);
+        NetheoBalls.setup();
 
         setupStats();
     }
@@ -73,9 +77,7 @@ public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
     }
 
     public void tryUpdate() {
-        if (getConfig().getBoolean("auto-update")
-            && getDescription().getVersion().startsWith("Build")
-        ) {
+        if (configManager.isAutoUpdate() && getDescription().getVersion().startsWith("Build")) {
             new GuizhanBuildsUpdater(this, getFile(), username, repo, branch, false, "zh-CN").start();
         }
     }
@@ -129,8 +131,8 @@ public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
         return Netheopoiesis.getInstance().listenerManager;
     }
 
-    public static RunnableManager getRunnableManager() {
-        return Netheopoiesis.getInstance().runnableManager;
+    public static TaskManager getRunnableManager() {
+        return Netheopoiesis.getInstance().taskManager;
     }
 
     public static MobManager getMobManager() {
@@ -141,7 +143,7 @@ public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
         return Netheopoiesis.getInstance().purification;
     }
 
-    public static PlantRegistry getPlantRegistry() {
-        return Netheopoiesis.getInstance().plantRegistry;
+    public static Registry getPlantRegistry() {
+        return Netheopoiesis.getInstance().registry;
     }
 }

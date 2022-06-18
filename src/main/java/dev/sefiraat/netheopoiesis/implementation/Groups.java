@@ -5,6 +5,7 @@ import dev.sefiraat.netheopoiesis.implementation.groups.DiscoveriesFlexGroup;
 import dev.sefiraat.netheopoiesis.implementation.groups.DummyItemGroup;
 import dev.sefiraat.netheopoiesis.implementation.groups.MainFlexGroup;
 import dev.sefiraat.netheopoiesis.implementation.groups.PurificationFlexGroup;
+import dev.sefiraat.netheopoiesis.implementation.groups.TradesFlexGroup;
 import dev.sefiraat.netheopoiesis.utils.Keys;
 import dev.sefiraat.netheopoiesis.utils.Theme;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
@@ -52,6 +53,22 @@ public final class Groups {
         )
     );
 
+    public static final DummyItemGroup PASTES = new DummyItemGroup(
+        Keys.newKey("pastes"),
+        new CustomItemStack(
+            new ItemStack(Material.GLOWSTONE_DUST),
+            Theme.MAIN.color("下界乌托邦 - 浆糊")
+        )
+    );
+
+    public static final DummyItemGroup BALLS = new DummyItemGroup(
+        Keys.newKey("netheo-balls"),
+        new CustomItemStack(
+            new ItemStack(Material.SNOWBALL),
+            Theme.MAIN.color("下界乌托邦 - 下界丸子")
+        )
+    );
+
     public static final DummyItemGroup CRUX = new DummyItemGroup(
         Keys.newKey("crux"),
         new CustomItemStack(
@@ -65,6 +82,14 @@ public final class Groups {
         new CustomItemStack(
             new ItemStack(Material.WHEAT_SEEDS),
             Theme.MAIN.color("培育笔记")
+        )
+    );
+
+    public static final TradesFlexGroup TRADES = new TradesFlexGroup(
+        Keys.newKey("trades"),
+        new CustomItemStack(
+            new ItemStack(Material.GOLD_INGOT),
+            Theme.MAIN.color("猪灵交易笔记")
         )
     );
 
