@@ -113,12 +113,12 @@ public final class Stacks {
         "NPS_MIXING_QUARTZ_1",
         Material.QUARTZ,
         Theme.TOOL,
-        "Mixing Quartz",
-        "Drop 3 Netheo Paste on the ground",
-        "and right click with this mixing",
-        "quartz to form a Netheo Ball",
-        "The type and flavour depends on the",
-        "pastes dropped."
+        "混合石英",
+        "在地上丢出3种下界浆糊,",
+        "手持混合石英右键点击",
+        "将它们混合成为下界丸子.",
+        "丸子的类型与风味值取决于",
+        "下界浆糊的类型."
     );
 
     public static final SlimefunItemStack ENDER_CAKE = Theme.themedSlimefunItemStack(

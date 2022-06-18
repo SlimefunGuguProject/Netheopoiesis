@@ -14,8 +14,10 @@ import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -55,12 +57,12 @@ public class TradesFlexGroup extends FlexItemGroup {
 
     private static final ItemStack TRADE_ITEM_INFO = new CustomItemStack(
         Material.LIGHT_BLUE_STAINED_GLASS_PANE,
-        Theme.PASSIVE + "The Item Given to the Trader"
+        Theme.PASSIVE + "你提供的物品"
     );
 
     private static final ItemStack DROPPED_ITEM_INFO = new CustomItemStack(
         Material.LIGHT_BLUE_STAINED_GLASS_PANE,
-        Theme.PASSIVE + "The Item you receive"
+        Theme.PASSIVE + "你获得的物品"
     );
 
     private static final ItemStack HELD_SLOT = new CustomItemStack(
@@ -115,12 +117,16 @@ public class TradesFlexGroup extends FlexItemGroup {
 
         reapplyFooter(player, profile, mode, menu, page, totalPages);
 
+        // Sound
+        menu.addMenuOpeningHandler((p) -> p.playSound(p.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.0F, 1.0F));
+
         // Back
         menu.replaceExistingItem(
             GUIDE_BACK,
             ChestMenuUtils.getBackButton(
                 player,
-                Slimefun.getLocalization().getMessage("guide.back.guide")
+                "",
+                ChatColor.GRAY + Slimefun.getLocalization().getMessage(player, "guide.back.guide")
             )
         );
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
@@ -161,16 +167,21 @@ public class TradesFlexGroup extends FlexItemGroup {
                                int returnPage,
                                Trade trade
     ) {
-        // Back Button
+        // Sound
+        p.playSound(p.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.0F, 1.0F);
+
+        // Back
         menu.replaceExistingItem(
             GUIDE_BACK,
             ChestMenuUtils.getBackButton(
                 p,
-                Slimefun.getLocalization().getMessage("guide.back.guide")
+                "",
+                ChatColor.GRAY + Slimefun.getLocalization().getMessage(p, "guide.back.guide")
             )
         );
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
             setupPage(player1, profile, mode, menu, returnPage);
+            p.playSound(p.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.0F, 1.0F);
             return false;
         });
 

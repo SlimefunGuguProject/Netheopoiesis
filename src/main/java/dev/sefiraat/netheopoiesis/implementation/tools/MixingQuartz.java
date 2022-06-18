@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
 public class MixingQuartz extends LimitedUseItem {
 
     private static final NamespacedKey KEY = Keys.newKey("uses");
-    private static final Pattern LORE_FLAVOUR = Pattern.compile(Theme.CLICK_INFO + "Flavour: [0-9]+");
+    private static final Pattern LORE_FLAVOUR = Pattern.compile(Theme.CLICK_INFO + "风味值: [0-9]+");
 
     public MixingQuartz(ItemGroup group,
                         SlimefunItemStack item,
@@ -100,7 +100,7 @@ public class MixingQuartz extends LimitedUseItem {
             for (int i = 0; i < lore.size(); i++) {
                 final String string = lore.get(i);
                 if (LORE_FLAVOUR.matcher(string).matches()) {
-                    lore.set(i, Theme.CLICK_INFO.asTitle("Flavour", volume));
+                    lore.set(i, Theme.CLICK_INFO.asTitle("风味值", volume));
                 }
             }
             // Set meta and drop item

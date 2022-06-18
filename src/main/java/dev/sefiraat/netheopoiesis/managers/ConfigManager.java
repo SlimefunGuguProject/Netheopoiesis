@@ -82,7 +82,7 @@ public class ConfigManager {
     }
 
     public void saveAll() {
-        Netheopoiesis.getInstance().getLogger().info("Netheopoiesis saving data.");
+        Netheopoiesis.getInstance().getLogger().info("正在保存下界乌托邦数据.");
         saveDiscoveries();
     }
 
