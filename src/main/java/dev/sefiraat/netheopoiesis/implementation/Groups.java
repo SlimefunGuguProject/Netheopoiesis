@@ -57,7 +57,7 @@ public final class Groups {
         Keys.newKey("pastes"),
         new CustomItemStack(
             new ItemStack(Material.GLOWSTONE_DUST),
-            Theme.MAIN.color("下界乌托邦 - Seed Pastes")
+            Theme.MAIN.color("下界乌托邦 - 浆糊")
         )
     );
 
@@ -65,7 +65,7 @@ public final class Groups {
         Keys.newKey("netheo-balls"),
         new CustomItemStack(
             new ItemStack(Material.SNOWBALL),
-            Theme.MAIN.color("下界乌托邦 - Netheo Balls")
+            Theme.MAIN.color("下界乌托邦 - 下界丸子")
         )
     );
 
@@ -89,7 +89,7 @@ public final class Groups {
         Keys.newKey("trades"),
         new CustomItemStack(
             new ItemStack(Material.GOLD_INGOT),
-            Theme.MAIN.color("流浪猪灵")
+            Theme.MAIN.color("猪灵交易笔记")
         )
     );
 
