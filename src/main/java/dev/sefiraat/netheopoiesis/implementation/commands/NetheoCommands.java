@@ -21,11 +21,11 @@ public class NetheoCommands extends BaseCommand {
 
     @Default
     public void onDefault(CommandSender sender) {
-        sender.sendMessage(Theme.ERROR + "Please provide a valid subcommand.");
+        sender.sendMessage(Theme.ERROR + "请输入子指令.");
     }
 
     @Subcommand("MobCaps")
-    @Description("Displays information about the various MobCaps")
+    @Description("显示生物上限设置信息")
     @CommandPermission("netheopoiesis.admin.mobcaps")
     public void viewMobCaps(CommandSender sender) {
         final MobCapType[] mobCapTypes = MobCapType.values();
@@ -47,12 +47,12 @@ public class NetheoCommands extends BaseCommand {
     }
 
     @Subcommand("PurgeMobCap")
-    @Description("Kills all mobs from a specific Mob Cap")
+    @Description("清除指定类型的所有生物")
     @CommandPermission("netheopoiesis.admin.mobcaps")
     @CommandCompletion("@MOB_CAPS")
     public void purgeMobCap(CommandSender sender, String mobCapType) {
         final MobCap mobCap = MobManager.getInstance().getMobCap(MobCapType.valueOf(mobCapType));
-        final String message = "Mob Cap Purged";
+        final String message = "已清除指定类型的所有生物";
 
         mobCap.killAllMobs();
         if (sender instanceof Player player) {
@@ -63,10 +63,10 @@ public class NetheoCommands extends BaseCommand {
     }
 
     @Subcommand("PurgeAllMobCap")
-    @Description("Kills all mobs from all Mob Caps")
+    @Description("清除所有生物")
     @CommandPermission("netheopoiesis.admin.mobcaps")
     public void purgeMobCap(CommandSender sender) {
-        final String message = "All Mob Caps Purged";
+        final String message = "已清除所有生物";
 
         for (MobCapType type : MobCapType.values()) {
             MobManager.getInstance().getMobCap(type).killAllMobs();
