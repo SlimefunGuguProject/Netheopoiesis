@@ -47,156 +47,145 @@ public final class Stacks {
         "NPS_HARMONISED_CRYSTAL_FIRE",
         Material.RED_DYE,
         Theme.CRAFTING,
-        "Harmonised Crystal: Fire",
-        "This crystal has been attuned and",
-        "harmonised with the power of fire."
+        "调和水晶: 火",
+        "这个水晶已经被调和过,",
+        "可以与火焰的能量协调."
     );
 
     public static final SlimefunItemStack HARMONISED_CRYSTAL_WATER = Theme.themedSlimefunItemStack(
         "NPS_HARMONISED_CRYSTAL_WATER",
         Material.CYAN_DYE,
         Theme.CRAFTING,
-        "Harmonised Crystal: Water",
-        "This crystal has been attuned and",
-        "harmonised with the power of water."
+        "调和水晶: 水",
+        "这个水晶已经被调和过,",
+        "可以与水的能量协调."
     );
 
     public static final SlimefunItemStack HARMONISED_CRYSTAL_AIR = Theme.themedSlimefunItemStack(
         "NPS_HARMONISED_CRYSTAL_AIR",
         Material.WHITE_DYE,
         Theme.CRAFTING,
-        "Harmonised Crystal: Air",
-        "This crystal has been attuned and",
-        "harmonised with the power of air."
+        "调和水晶: 气",
+        "这个水晶已经被调和过,",
+        "可以与空气的能量协调."
     );
 
     public static final SlimefunItemStack HARMONISED_CRYSTAL_EARTH = Theme.themedSlimefunItemStack(
         "NPS_HARMONISED_CRYSTAL_EARTH",
         Material.BROWN_DYE,
         Theme.CRAFTING,
-        "Harmonised Crystal: Earth",
-        "This crystal has been attuned and",
-        "harmonised with the power of earth."
+        "调和水晶: 地",
+        "这个水晶已经被调和过,",
+        "可以与大地的能量协调."
     );
 
     public static final SlimefunItemStack DISCORDANT_CRYSTAL_FIRE = Theme.themedSlimefunItemStack(
         "NPS_DISCORDANT_CRYSTAL_FIRE",
         Material.MAGENTA_DYE,
         Theme.CRAFTING,
-        "Discordant Crystal: Fire",
-        "This crystal has been attuned",
-        "to the direct vacuum of fire",
-        "element."
+        "不和谐的水晶: 火",
+        "这个水晶已经被调和过,",
+        "可以直接操控火元素的能量."
     );
 
     public static final SlimefunItemStack DISCORDANT_CRYSTAL_WATER = Theme.themedSlimefunItemStack(
         "NPS_DISCORDANT_CRYSTAL_WATER",
         Material.LIGHT_BLUE_DYE,
         Theme.CRAFTING,
-        "Discordant Crystal: Water",
-        "This crystal has been attuned",
-        "to the direct vacuum of water",
-        "element."
+        "不和谐的水晶: 水",
+        "这个水晶已经被调和过,",
+        "可以直接操控水元素的能量."
     );
 
     public static final SlimefunItemStack DISCORDANT_CRYSTAL_EARTH = Theme.themedSlimefunItemStack(
         "NPS_DISCORDANT_CRYSTAL_EARTH",
         Material.BLACK_DYE,
         Theme.CRAFTING,
-        "Discordant Crystal: Water",
-        "This crystal has been attuned",
-        "to the direct vacuum of the earth",
-        "element."
+        "不和谐的水晶: 地",
+        "这个水晶已经被调和过,",
+        "可以直接操控地元素的能量."
     );
 
     public static final SlimefunItemStack DISCORDANT_CRYSTAL_AIR = Theme.themedSlimefunItemStack(
         "NPS_DISCORDANT_CRYSTAL_AIR",
         Material.LIGHT_GRAY_DYE,
         Theme.CRAFTING,
-        "Discordant Crystal: Air",
-        "This crystal has been attuned",
-        "to the direct vacuum of the air",
-        "element."
+        "不和谐的水晶: 气",
+        "这个水晶已经被调和过,",
+        "可以直接操控气元素的能量."
     );
 
     public static final SlimefunItemStack DISSONANT_CRYSTAL_FIRE = Theme.themedSlimefunItemStack(
         "NPS_DISSONANT_CRYSTAL_FIRE",
         Material.ORANGE_DYE,
         Theme.CRAFTING,
-        "Dissonant Crystal: Fire",
-        "This crystal has been attuned",
-        "to the oddities of fire",
-        "element."
+        "奇怪的水晶: 火",
+        "这个水晶已经适应了",
+        "火元素的奇妙之处."
     );
 
     public static final SlimefunItemStack DISSONANT_CRYSTAL_WATER = Theme.themedSlimefunItemStack(
         "NPS_DISSONANT_CRYSTAL_WATER",
         Material.BLUE_DYE,
         Theme.CRAFTING,
-        "Dissonant Crystal: Water",
-        "This crystal has been attuned",
-        "to the oddities of water",
-        "element."
+        "奇怪的水晶: 水",
+        "这个水晶已经适应了",
+        "水元素的奇妙之处."
     );
 
     public static final SlimefunItemStack DISSONANT_CRYSTAL_EARTH = Theme.themedSlimefunItemStack(
         "NPS_DISSONANT_CRYSTAL_EARTH",
         Material.GREEN_DYE,
         Theme.CRAFTING,
-        "Dissonant Crystal: Water",
-        "This crystal has been attuned",
-        "to the oddities of the earth",
-        "element."
+        "奇怪的水晶: 地",
+        "这个水晶已经适应了",
+        "地元素的奇妙之处."
     );
 
     public static final SlimefunItemStack DISSONANT_CRYSTAL_AIR = Theme.themedSlimefunItemStack(
         "NPS_DISSONANT_CRYSTAL_AIR",
         Material.GRAY_DYE,
         Theme.CRAFTING,
-        "Dissonant Crystal: Air",
-        "This crystal has been attuned",
-        "to the oddities of the air",
-        "element."
+        "奇怪的水晶: 气",
+        "这个水晶已经适应了",
+        "气元素的奇妙之处."
     );
 
     public static final SlimefunItemStack ELEMENTAL_CRYSTAL = Theme.themedSlimefunItemStack(
         "NPS_ELEMENTAL_CRYSTAL",
         ItemStackUtils.enchantedItemStack(Material.QUARTZ),
         Theme.CRAFTING,
-        "Elemental Crystal",
-        "This crystal harnesses the power",
-        "of the four base elements to channel",
-        "purification power."
+        "元素水晶",
+        "这个水晶控制着四种",
+        "基本元素, 以调动净化能量."
     );
 
     public static final SlimefunItemStack VACUUM_CRYSTAL = Theme.themedSlimefunItemStack(
         "NPS_VACUUM_CRYSTAL",
         ItemStackUtils.enchantedItemStack(Material.QUARTZ),
         Theme.CRAFTING,
-        "Vacuum Crystal",
-        "This crystal harnesses the vacuum",
-        "of power from the base elements to channel",
-        "purification power."
+        "真空水晶",
+        "这个水晶控制着四种",
+        "基本元素, 以调动净化能量."
     );
 
     public static final SlimefunItemStack IRREGULAR_CRYSTAL = Theme.themedSlimefunItemStack(
         "NPS_IRREGULAR_CRYSTAL",
         ItemStackUtils.enchantedItemStack(Material.QUARTZ),
         Theme.CRAFTING,
-        "Irregular Crystal",
-        "This crystal harnesses the oddities",
-        "of the four base elements to channel",
-        "purification power."
+        "不规则水晶",
+        "这个水晶控制着四种",
+        "基本元素, 以调动净化能量."
     );
 
     public static final SlimefunItemStack QUARTZ_BLANK = Theme.themedSlimefunItemStack(
         "NPS_QUARTZ_BLANK",
         Material.QUARTZ_BLOCK,
         Theme.CRAFTING,
-        "Quartz Blank",
-        "This blank can be filled with",
-        "elemental power and used to focus",
-        "nearby purification energies"
+        "空白石英",
+        "这种空白的石英可以",
+        "注入元素的能量,",
+        "来凝聚周围的净化能量"
     );
 
     // endregion
@@ -282,83 +271,84 @@ public final class Stacks {
         "NPS_BEACON",
         Material.SHROOMLIGHT,
         Theme.TOOL,
-        "Nether Beacon",
-        "This beacon will draw nearby",
-        "purification and convert it into power.",
-        "The beacon's beam will slowly",
-        "remove any blocks above this block's",
-        "y-level. The radius depends on the",
-        "power of the whole beacon's structure.",
-        "Place beacon base blocks below this to",
-        "increase the power.",
-        Theme.CLICK_INFO.asTitle("Purification Draw", 20),
-        Theme.CLICK_INFO.asTitle("Cumulative Power", 1)
+        "下界信标",
+        "这个信标可以凝聚",
+        "周围的净化能量.",
+        "信标发出的光束可以缓慢地",
+        "分解其接触到的方块.",
+        "",
+        "信标的整体构造等级",
+        "决定了光束的范围.",
+        "",
+        "在信标下方放置基座方块,",
+        "来增强信标的能量等级.",
+        Theme.CLICK_INFO.asTitle("消耗净化值", 20),
+        Theme.CLICK_INFO.asTitle("累积能量", 1)
     );
 
     public static final SlimefunItemStack NETHER_BEACON_BASE_1 = Theme.themedSlimefunItemStack(
         "NPS_BEACON_BASE_1",
         Material.NETHER_WART_BLOCK,
         Theme.TOOL,
-        "Nether Beacon Base: Tier 1",
-        "This base will draw purification",
-        "from the surrounding area and convert",
-        "into a form of power.",
-        "Can draw power from other base",
-        "blocks below this if they are",
-        "one tier higher.",
-        Theme.CLICK_INFO.asTitle("Purification Draw", 10),
-        Theme.CLICK_INFO.asTitle("Cumulative Power", 1)
+        "下界信标基座: 1级",
+        "该基座可以凝聚",
+        "周围的净化能量.",
+        "",
+        "如果下方拥有其他更高等级的",
+        "信标基座,那么该基座的力量",
+        "也会得到增强.",
+        Theme.CLICK_INFO.asTitle("消耗净化值", 10),
+        Theme.CLICK_INFO.asTitle("累积能量", 1)
     );
 
     public static final SlimefunItemStack NETHER_BEACON_BASE_2 = Theme.themedSlimefunItemStack(
         "NPS_BEACON_BASE_2",
         Material.NETHER_BRICKS,
         Theme.TOOL,
-        "Nether Beacon Base: Tier 2",
-        "This base will draw purification",
-        "from the surrounding area and convert",
-        "into a form of power.",
-        "Can draw power from other base",
-        "blocks below this if they are",
-        "one tier higher.",
-        Theme.CLICK_INFO.asTitle("Purification Draw", 15),
-        Theme.CLICK_INFO.asTitle("Cumulative Power", 1)
+        "下界信标基座: 2级",
+        "该基座可以凝聚",
+        "周围的净化能量.",
+        "",
+        "如果下方拥有其他更高等级的",
+        "信标基座,那么该基座的力量",
+        "也会得到增强.",
+        Theme.CLICK_INFO.asTitle("消耗净化值", 15),
+        Theme.CLICK_INFO.asTitle("累积能量", 1)
     );
 
     public static final SlimefunItemStack NETHER_BEACON_BASE_3 = Theme.themedSlimefunItemStack(
         "NPS_BEACON_BASE_3",
         Material.RED_CONCRETE,
         Theme.TOOL,
-        "Nether Beacon Base: Tier 3",
-        "This base will draw purification",
-        "from the surrounding area and convert",
-        "into a form of power.",
-        "Can draw power from other base",
-        "blocks below this if they are",
-        "one tier higher.",
-        Theme.CLICK_INFO.asTitle("Purification Draw", 20),
-        Theme.CLICK_INFO.asTitle("Cumulative Power", 1)
+        "下界信标基座: 3级",
+        "该基座可以凝聚",
+        "周围的净化能量.",
+        "",
+        "如果下方拥有其他更高等级的",
+        "信标基座,那么该基座的力量",
+        "也会得到增强.",
+        Theme.CLICK_INFO.asTitle("消耗净化值", 20),
+        Theme.CLICK_INFO.asTitle("累积能量", 1)
     );
 
     public static final SlimefunItemStack SEED_ANALYSER = Theme.themedSlimefunItemStack(
         "NPS_SEED_ANALYSER",
         Material.COMPASS,
         Theme.TOOL,
-        "Seed Analyser",
-        "When used on a Nether Plant, this",
-        "tool will provide you information",
-        "about it's type, growth and",
-        "purification values."
+        "种子分析仪",
+        "当右键点击下界植物时,",
+        "你可以获得它的类型, 生长阶段,",
+        "以及净化值的信息."
     );
 
     public static final SlimefunItemStack SIPHON_ANALYSER = Theme.themedSlimefunItemStack(
         "NPS_SIPHON_ANALYSER",
         Material.COMPASS,
         Theme.TOOL,
-        "Siphon Analyser",
-        "When used on a Siphoning block,",
-        "tool will provide you information",
-        "about it's current power and state"
+        "信标分析仪",
+        "当右键点击信标基座时,",
+        "你可以获得它的状态,",
+        "以及能量."
     );
 
     // endregion

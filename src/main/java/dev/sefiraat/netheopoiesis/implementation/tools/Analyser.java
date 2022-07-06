@@ -93,7 +93,7 @@ public class Analyser extends SlimefunItem {
     @ParametersAreNonnullByDefault
     private void onUseSiphon(Block block, BeaconSiphoningBlock siphon, Player player) {
         final int currentPower = siphon.getCurrentPower(block);
-        final String powerMessage = Theme.CLICK_INFO.asTitle("Siphon Power", currentPower);
+        final String powerMessage = Theme.CLICK_INFO.asTitle("信标能量", currentPower);
 
         player.sendMessage(powerMessage);
     }
