@@ -2,12 +2,17 @@ package dev.sefiraat.netheopoiesis.api;
 
 import com.google.common.base.Preconditions;
 import dev.sefiraat.netheopoiesis.api.interfaces.WorldCrushable;
+import dev.sefiraat.netheopoiesis.api.plant.netheos.Flavour;
+import dev.sefiraat.netheopoiesis.api.plant.netheos.NetheoBalls;
+import dev.sefiraat.netheopoiesis.implementation.netheos.NetheoBall;
 import dev.sefiraat.netheopoiesis.listeners.DropListener;
 import dev.sefiraat.netheopoiesis.utils.Keys;
 import dev.sefiraat.netheopoiesis.utils.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
@@ -101,6 +106,22 @@ public final class RecipeTypes {
         )
     );
 
+    @Nonnull
+    public static final RecipeType WANDERING_PIGLIN_TRADE = new RecipeType(
+        Keys.newKey("piglin-trade"),
+        Theme.themedItemStack(
+            Material.PIGLIN_SPAWN_EGG,
+            Theme.RECIPE_TYPE,
+            "流浪猪灵交易",
+            "该物品可以通过与流浪猪灵",
+            "(不是普通的猪灵)交易获得.",
+            "流浪猪灵会与两只炽足兽一同生成",
+            "并提供交易选项.",
+            "你可以在净化协议中查看",
+            "有关流浪猪灵的生成信息."
+        )
+    );
+
     /**
      * This method both registers the drop and returns an ItemStack array that can be used
      * for Slimefun's recipe system. {@link RecipeTypes#VANILLA_DROP}
@@ -140,6 +161,29 @@ public final class RecipeTypes {
         return new ItemStack[]{
             null, null, null,
             null, dropFrom.getItem(), null,
+            null, null, null
+        };
+    }
+
+    /**
+     * This method returns an ItemStack array that can be used for Slimefun's Recipe system
+     *
+     * @param ball The Netheoball type required for the trade
+     * @param minFlavour The minimum flavour required
+     * @return A {@link ItemStack[]} used for Slimefun's Recipe registration with the recipe item in the middle.
+     */
+    @Nonnull
+    public static ItemStack[] createTradingRecipe(@Nonnull ItemStack itemStack, @Nonnull NetheoBalls ball, int minFlavour) {
+        final ItemStack flavourStack = new CustomItemStack(
+            Material.MELON_SEEDS,
+            Theme.MAIN.apply("喜好风味"),
+            Theme.CLICK_INFO.asTitle("下界丸子类型", ball.getSlimefunItemStack().getDisplayName()),
+            Theme.CLICK_INFO.asTitle("风味数量", minFlavour)
+        );
+        ball.getTradePool().addTrade(itemStack, minFlavour);
+        return new ItemStack[]{
+            null, null, null,
+            null, flavourStack, null,
             null, null, null
         };
     }
