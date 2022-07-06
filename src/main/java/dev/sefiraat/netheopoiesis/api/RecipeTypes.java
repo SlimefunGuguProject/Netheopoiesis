@@ -112,14 +112,13 @@ public final class RecipeTypes {
         Theme.themedItemStack(
             Material.PIGLIN_SPAWN_EGG,
             Theme.RECIPE_TYPE,
-            "Wandering Piglin Trade",
-            "This item is a chance trade from",
-            "a Wandering Pigling (NOT A NORMAL PIGLIN)",
-            "Wandering Piglins spawn with two",
-            "Striders and offer special trades.",
-            "More information on spawning can",
-            "be found in the purification section",
-            "of the guide."
+            "流浪猪灵交易",
+            "该物品可以通过与流浪猪灵",
+            "(不是普通的猪灵)交易获得.",
+            "流浪猪灵会与两只炽足兽一同生成",
+            "并提供交易选项.",
+            "你可以在净化协议中查看",
+            "有关流浪猪灵的生成信息."
         )
     );
 
@@ -177,9 +176,9 @@ public final class RecipeTypes {
     public static ItemStack[] createTradingRecipe(@Nonnull ItemStack itemStack, @Nonnull NetheoBalls ball, int minFlavour) {
         final ItemStack flavourStack = new CustomItemStack(
             Material.MELON_SEEDS,
-            Theme.MAIN.apply("Required Flavour"),
-            Theme.CLICK_INFO.asTitle("Netheoball Type", ball.getSlimefunItemStack().getDisplayName()),
-            Theme.CLICK_INFO.asTitle("Flavour Amount", minFlavour)
+            Theme.MAIN.apply("喜好风味"),
+            Theme.CLICK_INFO.asTitle("下界丸子类型", ball.getSlimefunItemStack().getDisplayName()),
+            Theme.CLICK_INFO.asTitle("风味数量", minFlavour)
         );
         ball.getTradePool().addTrade(itemStack, minFlavour);
         return new ItemStack[]{
