@@ -30,10 +30,6 @@
                             <pattern>io.papermc.lib</pattern>
                             <shadedPattern>dev.sefiraat.netheopoiesis.paperlib</shadedPattern>
                         </relocation>
-                        <relocation>
-                            <pattern>net.guizhanss.guizhanlib</pattern>
-                            <shadedPattern>dev.sefiraat.netheopoiesis.guizhanlib</shadedPattern>
-                        </relocation>
                     </relocations>
                     <filters>
                         <filter>
@@ -144,9 +140,9 @@
         </dependency>
         <dependency>
             <groupId>net.guizhanss</groupId>
-            <artifactId>GuizhanLib</artifactId>
-            <version>0.9.7</version>
-            <scope>compile</scope>
+            <artifactId>GuizhanLibPlugin</artifactId>
+            <version>1.1.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
