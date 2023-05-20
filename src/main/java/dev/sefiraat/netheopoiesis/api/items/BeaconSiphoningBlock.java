@@ -4,7 +4,6 @@ import com.google.common.base.Preconditions;
 import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
 import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.Purification;
-import dev.sefiraat.netheopoiesis.api.interfaces.CustomPlacementBlock;
 import dev.sefiraat.netheopoiesis.api.interfaces.PurificationDrain;
 import dev.sefiraat.netheopoiesis.listeners.CustomPlacementListener;
 import dev.sefiraat.netheopoiesis.utils.Keys;
@@ -15,6 +14,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
@@ -40,7 +41,7 @@ import java.util.UUID;
  * It will also post its location to the Registry and draw additional power from other SiphoningBlocks
  * below it so long as it's a tier higher.
  */
-public class BeaconSiphoningBlock extends SlimefunItem implements PurificationDrain, CustomPlacementBlock {
+public class BeaconSiphoningBlock extends SlimefunItem implements PurificationDrain {
 
     @Nonnull
     private static final Map<BlockPosition, Integer> POWER_MAP = new HashMap<>();
@@ -86,6 +87,13 @@ public class BeaconSiphoningBlock extends SlimefunItem implements PurificationDr
                 @Override
                 public void uniqueTick() {
                     onUniqueTick();
+                }
+            },
+            new BlockPlaceHandler(false) {
+                @Override
+                @ParametersAreNonnullByDefault
+                public void onPlayerPlace(BlockPlaceEvent e) {
+                    whenPlaced(e);
                 }
             },
             new BlockBreakHandler(false, false) {
@@ -164,6 +172,7 @@ public class BeaconSiphoningBlock extends SlimefunItem implements PurificationDr
         }
         // Wasn't placable, so cancel the event
         event.setCancelled(true);
+        Slimefun.getDatabaseManager().getBlockDataController().removeBlock(location);
     }
 
     @Override

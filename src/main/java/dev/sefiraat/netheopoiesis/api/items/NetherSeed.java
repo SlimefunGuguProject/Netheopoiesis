@@ -7,7 +7,6 @@ import dev.sefiraat.netheopoiesis.Netheopoiesis;
 import dev.sefiraat.netheopoiesis.Registry;
 import dev.sefiraat.netheopoiesis.api.RecipeTypes;
 import dev.sefiraat.netheopoiesis.api.events.PlantBeforeGrowthEvent;
-import dev.sefiraat.netheopoiesis.api.interfaces.CustomPlacementBlock;
 import dev.sefiraat.netheopoiesis.api.interfaces.NetherPlant;
 import dev.sefiraat.netheopoiesis.api.interfaces.SeedPaste;
 import dev.sefiraat.netheopoiesis.api.plant.Growth;
@@ -34,6 +33,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.papermc.lib.PaperLib;
@@ -70,7 +70,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * This class is used to define a Seed item that will grow as a {@link NetherPlant}
  */
-public abstract class NetherSeed extends SlimefunItem implements NetherPlant, SeedPaste, CustomPlacementBlock {
+public abstract class NetherSeed extends SlimefunItem implements NetherPlant, SeedPaste {
 
     @Nonnull
     public static final Set<BlockFace> BREEDING_DIRECTIONS = Set.of(
@@ -130,6 +130,13 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
                     if (item instanceof NetherSeed seed) {
                         onTick(block, seed, data);
                     }
+                }
+            },
+            new BlockPlaceHandler(false) {
+                @Override
+                @ParametersAreNonnullByDefault
+                public void onPlayerPlace(BlockPlaceEvent e) {
+                    whenPlaced(e);
                 }
             },
             new BlockBreakHandler(false, false) {
@@ -324,6 +331,7 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
         }
         // Wasn't placable, so cancel the event
         event.setCancelled(true);
+        Slimefun.getDatabaseManager().getBlockDataController().removeBlock(location);
     }
 
     /**
