@@ -110,6 +110,7 @@ public class PurificationSeed extends NetherSeed {
             ownerCache.put(location, uuid);
         } else {
             event.setCancelled(true);
+            Slimefun.getDatabaseManager().getBlockDataController().removeBlock(location);
         }
     }
 
