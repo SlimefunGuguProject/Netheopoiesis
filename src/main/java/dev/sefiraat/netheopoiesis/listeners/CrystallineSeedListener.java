@@ -1,5 +1,6 @@
 package dev.sefiraat.netheopoiesis.listeners;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.implementation.Stacks;
 import dev.sefiraat.netheopoiesis.implementation.flora.CrystallineCrux;
 import dev.sefiraat.netheopoiesis.utils.Keys;
@@ -47,7 +48,7 @@ public class CrystallineSeedListener implements Listener {
             final SlimefunItemStack crux = Stacks.CRYSTALLINE_CRUX;
             block.setType(crux.getType());
             BlockStorage.store(block, crux.getItemId());
-            BlockStorage.addBlockInfo(block, Keys.CRYSTALLINE_STEPS_REMAINING, String.valueOf(CrystallineCrux.STEPS));
+            StorageCacheUtils.setData(block.getLocation(), Keys.CRYSTALLINE_STEPS_REMAINING, String.valueOf(CrystallineCrux.STEPS));
             event.getEntity().remove();
         }
     }

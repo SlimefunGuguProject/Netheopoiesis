@@ -1,9 +1,9 @@
 package dev.sefiraat.netheopoiesis.implementation.tasks;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.utils.Keys;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.block.Block;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -35,15 +35,15 @@ public class UpdateCruxTask extends BukkitRunnable {
 
     @Override
     public void run() {
-        if (Slimefun.getTickerTask().isDeletedSoon(block.getLocation())) {
-            // BlockStorage still has not been cleared
-            return;
-        }
+//        if (Slimefun.getTickerTask().isDeletedSoon(block.getLocation())) {
+//            // BlockStorage still has not been cleared
+//            return;
+//        }
         // Store the new data then cancel task
         block.setType(crux.getType());
-        BlockStorage.store(block, crux.getItemId());
+        Slimefun.getDatabaseManager().getBlockDataController().createBlock(block.getLocation(), crux.getItemId());
         if (steps > -1) {
-            BlockStorage.addBlockInfo(block, Keys.CRYSTALLINE_STEPS_REMAINING, String.valueOf(this.steps));
+            StorageCacheUtils.setData(block.getLocation(), Keys.CRYSTALLINE_STEPS_REMAINING, String.valueOf(this.steps));
         }
         cancel();
     }

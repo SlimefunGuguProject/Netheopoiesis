@@ -108,9 +108,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.Slimefun</groupId>
+            <groupId>com.github.StarWishsama</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>b1aae439f3</version>
+            <version>7b6fdc30a0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

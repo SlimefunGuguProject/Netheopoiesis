@@ -1,6 +1,8 @@
 package dev.sefiraat.netheopoiesis.api.items;
 
 import com.google.common.base.Preconditions;
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.Netheopoiesis;
 import dev.sefiraat.netheopoiesis.Registry;
 import dev.sefiraat.netheopoiesis.api.RecipeTypes;
@@ -33,10 +35,9 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.papermc.lib.PaperLib;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
@@ -125,7 +126,7 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
                 }
 
                 @Override
-                public void tick(Block block, SlimefunItem item, Config data) {
+                public void tick(Block block, SlimefunItem item, SlimefunBlockData data) {
                     if (item instanceof NetherSeed seed) {
                         onTick(block, seed, data);
                     }
@@ -152,9 +153,9 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
     }
 
     @ParametersAreNonnullByDefault
-    private void onTick(Block block, NetherSeed seed, Config data) {
+    private void onTick(Block block, NetherSeed seed, SlimefunBlockData data) {
         final Location location = block.getLocation();
-        int growthStage = Integer.parseInt(data.getString(Keys.SEED_GROWTH_STAGE));
+        int growthStage = Integer.parseInt(data.getData(Keys.SEED_GROWTH_STAGE));
         onTickAlways(location, seed, data);
         if (growthStage >= getGrowthStages().stages()) {
             onTickFullyGrown(location, seed, data);
@@ -166,7 +167,7 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
     }
 
     @ParametersAreNonnullByDefault
-    private void tryGrow(Block block, NetherSeed seed, Config data, Location location, int growthStage) {
+    private void tryGrow(Block block, NetherSeed seed, SlimefunBlockData data, Location location, int growthStage) {
         final double growthRandom = ThreadLocalRandom.current().nextDouble();
         if (growthRandom <= getGrowthRate() && getGrowthStages().stages() > growthStage) {
             PlantBeforeGrowthEvent event = new PlantBeforeGrowthEvent(location, seed, growthStage);
@@ -196,7 +197,7 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
                 return;
             }
             final Block potentialMate = middleBlock.getRelative(face);
-            final SlimefunItem mateItem = BlockStorage.check(potentialMate);
+            final SlimefunItem mateItem = StorageCacheUtils.getSfItem(potentialMate.getLocation());
 
             if (mateItem instanceof NetherSeed mate) {
                 final BreedResult result = Registry.getInstance().getBreedResult(mother.getId(), mate.getId());
@@ -219,12 +220,13 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
 
     @ParametersAreNonnullByDefault
     private void trySetChildSeed(Location motherLocation, Block cloneBlock, NetherSeed childSeed) {
+        final Location cloneBlockLocation = cloneBlock.getLocation();
         cloneBlock.setType(Material.PLAYER_HEAD);
         PlayerHead.setSkin(cloneBlock, childSeed.getGrowthStages().get(0).getPlayerSkin(), false);
         PaperLib.getBlockState(cloneBlock, false).getState().update(true, false);
-        BlockStorage.store(cloneBlock, childSeed.getId());
-        BlockStorage.addBlockInfo(cloneBlock, Keys.SEED_GROWTH_STAGE, "0");
-        BlockStorage.addBlockInfo(cloneBlock, Keys.BLOCK_OWNER, getOwner(motherLocation).toString());
+        Slimefun.getDatabaseManager().getBlockDataController().createBlock(cloneBlockLocation, childSeed.getId());
+        StorageCacheUtils.setData(cloneBlockLocation, Keys.SEED_GROWTH_STAGE, "0");
+        StorageCacheUtils.setData(cloneBlockLocation, Keys.BLOCK_OWNER, getOwner(motherLocation).toString());
         breedSuccess(cloneBlock.getLocation());
     }
 
@@ -240,7 +242,7 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
 
             @Override
             public void newInstance(@Nonnull BlockMenu menu, @Nonnull Block block) {
-                final String ownerUuidString = BlockStorage.getLocationInfo(block.getLocation(), Keys.BLOCK_OWNER);
+                final String ownerUuidString = StorageCacheUtils.getData(block.getLocation(), Keys.BLOCK_OWNER);
                 if (ownerUuidString != null) {
                     final UUID ownerUuid = UUID.fromString(ownerUuidString);
                     addOwner(block.getLocation(), ownerUuid);
@@ -276,7 +278,7 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
     }
 
     public boolean isMature(@Nonnull Location location) {
-        final String stageString = BlockStorage.getLocationInfo(location, Keys.SEED_GROWTH_STAGE);
+        final String stageString = StorageCacheUtils.getData(location, Keys.SEED_GROWTH_STAGE);
         if (stageString == null) {
             return false;
         }
@@ -293,7 +295,7 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
             final Skulls nextTexture = getGrowthStages().get(growthStage - 1);
             PlayerHead.setSkin(block, nextTexture.getPlayerSkin(), false);
             PaperLib.getBlockState(block, false).getState().update(true, false);
-            BlockStorage.addBlockInfo(block, Keys.SEED_GROWTH_STAGE, String.valueOf(growthStage));
+            StorageCacheUtils.setData(block.getLocation(), Keys.SEED_GROWTH_STAGE, String.valueOf(growthStage));
             growthDisplay(block.getLocation());
         }
     }
@@ -308,15 +310,15 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
         final Block block = event.getBlock();
         final Block blockBelow = block.getRelative(BlockFace.DOWN);
         final Location location = block.getLocation();
-        final SlimefunItem itemBelow = BlockStorage.check(blockBelow);
+        final SlimefunItem itemBelow = StorageCacheUtils.getSfItem(blockBelow.getLocation());
 
         if (itemBelow instanceof NetherCrux crux
             && WorldUtils.inNether(block.getWorld())
             && getPlacements().contains(crux.getId())
         ) {
             final UUID uuid = event.getPlayer().getUniqueId();
-            BlockStorage.addBlockInfo(location, Keys.SEED_GROWTH_STAGE, "0");
-            BlockStorage.addBlockInfo(location, Keys.BLOCK_OWNER, uuid.toString());
+            StorageCacheUtils.setData(location, Keys.SEED_GROWTH_STAGE, "0");
+            StorageCacheUtils.setData(location, Keys.BLOCK_OWNER, uuid.toString());
             ownerCache.put(location, uuid);
             return;
         }

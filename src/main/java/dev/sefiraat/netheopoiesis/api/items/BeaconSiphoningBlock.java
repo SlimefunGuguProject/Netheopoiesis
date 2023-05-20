@@ -1,6 +1,8 @@
 package dev.sefiraat.netheopoiesis.api.items;
 
 import com.google.common.base.Preconditions;
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.Purification;
 import dev.sefiraat.netheopoiesis.api.interfaces.CustomPlacementBlock;
 import dev.sefiraat.netheopoiesis.api.interfaces.PurificationDrain;
@@ -13,9 +15,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
@@ -79,7 +79,7 @@ public class BeaconSiphoningBlock extends SlimefunItem implements PurificationDr
                 }
 
                 @Override
-                public void tick(Block block, SlimefunItem item, Config data) {
+                public void tick(Block block, SlimefunItem item, SlimefunBlockData data) {
                     onTick(block, item, data);
                 }
 
@@ -99,7 +99,7 @@ public class BeaconSiphoningBlock extends SlimefunItem implements PurificationDr
 
     @ParametersAreNonnullByDefault
     @OverridingMethodsMustInvokeSuper
-    protected boolean onTick(Block block, SlimefunItem item, Config data) {
+    protected boolean onTick(Block block, SlimefunItem item, SlimefunBlockData data) {
 
         // We do not want to operate every single tick
         if (currentTick != TICKS_PER_OPERATION) {
@@ -122,7 +122,7 @@ public class BeaconSiphoningBlock extends SlimefunItem implements PurificationDr
         for (int x = -1; x <= 1; x++) {
             for (int z = -1; z <= 1; z++) {
                 final Block blockBelow = block.getRelative(x, -1, z);
-                final SlimefunItem slimefunItem = BlockStorage.check(blockBelow);
+                final SlimefunItem slimefunItem = StorageCacheUtils.getSfItem(blockBelow.getLocation());
                 if (slimefunItem instanceof BeaconSiphoningBlock siphon
                     && siphon.tier == this.tier + 1
                 ) {
@@ -158,7 +158,7 @@ public class BeaconSiphoningBlock extends SlimefunItem implements PurificationDr
 
         if (WorldUtils.inNether(block.getWorld())) {
             final UUID uuid = event.getPlayer().getUniqueId();
-            BlockStorage.addBlockInfo(location, Keys.BLOCK_OWNER, uuid.toString());
+            StorageCacheUtils.setData(location, Keys.BLOCK_OWNER, uuid.toString());
             ownerCache.put(location, uuid);
             return;
         }
@@ -178,7 +178,7 @@ public class BeaconSiphoningBlock extends SlimefunItem implements PurificationDr
 
             @Override
             public void newInstance(@Nonnull BlockMenu menu, @Nonnull Block block) {
-                final String ownerUuidString = BlockStorage.getLocationInfo(block.getLocation(), Keys.BLOCK_OWNER);
+                final String ownerUuidString = StorageCacheUtils.getData(block.getLocation(), Keys.BLOCK_OWNER);
                 if (ownerUuidString != null) {
                     final UUID ownerUuid = UUID.fromString(ownerUuidString);
                     addOwner(block.getLocation(), ownerUuid);

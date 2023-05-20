@@ -1,5 +1,6 @@
 package dev.sefiraat.netheopoiesis.api.items;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
 import dev.sefiraat.netheopoiesis.api.RecipeTypes;
 import dev.sefiraat.netheopoiesis.api.interfaces.PurifyingObject;
 import dev.sefiraat.netheopoiesis.implementation.Stacks;
@@ -8,9 +9,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -53,7 +53,7 @@ public class NetherCrux extends SlimefunItem implements PurifyingObject {
                     if (slimefunItem == null || !slimefunItem.getId().equals(Stacks.CRUX_GATHERER.getItemId())) {
                         event.setCancelled(true);
                         block.setType(Material.AIR);
-                        BlockStorage.clearBlockInfo(block);
+                        Slimefun.getDatabaseManager().getBlockDataController().removeBlock(block.getLocation());
                     }
                     removePurificationRegistry(block);
                 }
@@ -65,7 +65,7 @@ public class NetherCrux extends SlimefunItem implements PurifyingObject {
                 }
 
                 @Override
-                public void tick(Block block, SlimefunItem item, Config data) {
+                public void tick(Block block, SlimefunItem item, SlimefunBlockData data) {
                     if (NetherCrux.this.tick >= TICKS_REQUIRED) {
                         registerPurificationValue(block);
                     }

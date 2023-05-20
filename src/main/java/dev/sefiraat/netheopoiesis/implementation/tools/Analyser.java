@@ -1,5 +1,6 @@
 package dev.sefiraat.netheopoiesis.implementation.tools;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.api.items.BeaconSiphoningBlock;
 import dev.sefiraat.netheopoiesis.api.items.NetherSeed;
 import dev.sefiraat.netheopoiesis.utils.ItemStackUtils;
@@ -60,7 +61,7 @@ public class Analyser extends SlimefunItem {
                 return;
             }
 
-            final SlimefunItem slimefunItem = BlockStorage.check(block);
+            final SlimefunItem slimefunItem = StorageCacheUtils.getSfItem(block.getLocation());
 
             if (slimefunItem instanceof NetherSeed plant && types.contains(AnalyserType.SEED)) {
                 onUseSeed(block, plant, player);
@@ -75,8 +76,8 @@ public class Analyser extends SlimefunItem {
 
     @ParametersAreNonnullByDefault
     private void onUseSeed(Block block, NetherSeed plant, Player player) {
-        final String growthStage = BlockStorage.getLocationInfo(block.getLocation(), Keys.SEED_GROWTH_STAGE);
-        final String ownerString = BlockStorage.getLocationInfo(block.getLocation(), Keys.BLOCK_OWNER);
+        final String growthStage = StorageCacheUtils.getData(block.getLocation(), Keys.SEED_GROWTH_STAGE);
+        final String ownerString = StorageCacheUtils.getData(block.getLocation(), Keys.BLOCK_OWNER);
         final UUID uuid = UUID.fromString(ownerString);
         final OfflinePlayer ownerPlayer = Bukkit.getOfflinePlayer(uuid);
 

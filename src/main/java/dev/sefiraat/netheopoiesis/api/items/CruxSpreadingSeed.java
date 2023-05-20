@@ -1,6 +1,8 @@
 package dev.sefiraat.netheopoiesis.api.items;
 
 import com.google.common.base.Preconditions;
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.Netheopoiesis;
 import dev.sefiraat.netheopoiesis.Purification;
 import dev.sefiraat.netheopoiesis.api.events.CruxSpreadEvent;
@@ -9,9 +11,8 @@ import dev.sefiraat.netheopoiesis.implementation.tasks.UpdateCruxTask;
 import dev.sefiraat.netheopoiesis.utils.ProtectionUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -37,13 +38,13 @@ public class CruxSpreadingSeed extends NetherSeed implements SpreadingPlant {
 
     @Override
     @ParametersAreNonnullByDefault
-    public void onTickFullyGrown(Location location, NetherSeed seed, Config data) {
+    public void onTickFullyGrown(Location location, NetherSeed seed, SlimefunBlockData data) {
         spread(location, seed, data);
     }
 
     @Override
     @ParametersAreNonnullByDefault
-    public void spread(Location sourceLocation, NetherSeed seed, Config data) {
+    public void spread(Location sourceLocation, NetherSeed seed, SlimefunBlockData data) {
         double randomChance = ThreadLocalRandom.current().nextDouble();
 
         if (randomChance <= (this.spreadChance * Netheopoiesis.CRUX_SPREAD_MULTIPLIER)) {
@@ -57,7 +58,7 @@ public class CruxSpreadingSeed extends NetherSeed implements SpreadingPlant {
         // For loop to make sure the purification can creep up and down.
 
         final Block block = sourceLocation.clone().add(randomX, randomY, randomZ).getBlock();
-        final SlimefunItem possibleCrux = BlockStorage.check(block);
+        final SlimefunItem possibleCrux = StorageCacheUtils.getSfItem(block.getLocation());
         if (possibleCrux instanceof NetherCrux currentCrux
             && getPlacements().contains(currentCrux.getId())
             && ProtectionUtils.hasPermission(getOwner(sourceLocation), block, Interaction.BREAK_BLOCK)
@@ -76,7 +77,7 @@ public class CruxSpreadingSeed extends NetherSeed implements SpreadingPlant {
                 // Event cancelled - lets not spread
                 return;
             }
-            BlockStorage.clearBlockInfo(block);
+            Slimefun.getDatabaseManager().getBlockDataController().removeBlock(block.getLocation());
             Purification.removeValue(block);
             // Schedule a task to ensure the new block storage happens only AFTER deletion
             UpdateCruxTask task = new UpdateCruxTask(block, convertTo);
