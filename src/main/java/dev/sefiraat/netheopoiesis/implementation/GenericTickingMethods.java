@@ -1,13 +1,13 @@
 package dev.sefiraat.netheopoiesis.implementation;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.api.items.GenericTickingSeed;
 import dev.sefiraat.netheopoiesis.api.items.NetherCrux;
 import dev.sefiraat.netheopoiesis.api.items.NetherSeed;
 import dev.sefiraat.netheopoiesis.utils.Theme;
 import dev.sefiraat.netheopoiesis.utils.WorldUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.TreeType;
@@ -75,7 +75,7 @@ public final class GenericTickingMethods {
             }
 
             final Block blockBelow = block.getRelative(BlockFace.DOWN);
-            final SlimefunItem possibleCrux = BlockStorage.check(blockBelow);
+            final SlimefunItem possibleCrux = StorageCacheUtils.getSfItem(blockBelow.getLocation());
 
             // And the block below must be a valid crux
             if (possibleCrux instanceof NetherCrux crux
@@ -97,7 +97,7 @@ public final class GenericTickingMethods {
             }
 
             final Block blockBelow = block.getRelative(BlockFace.DOWN);
-            final SlimefunItem possibleCrux = BlockStorage.check(blockBelow);
+            final SlimefunItem possibleCrux = StorageCacheUtils.getSfItem(blockBelow.getLocation());
 
             // And the block below must be a valid crux
             if (blockBelow.getType() == Material.SAND
@@ -120,7 +120,7 @@ public final class GenericTickingMethods {
             }
 
             final Block blockBelow = block.getRelative(BlockFace.DOWN);
-            final SlimefunItem possibleCrux = BlockStorage.check(blockBelow);
+            final SlimefunItem possibleCrux = StorageCacheUtils.getSfItem(blockBelow.getLocation());
 
             // And the block below must be a valid crux
             if (possibleCrux instanceof NetherCrux crux
@@ -142,7 +142,7 @@ public final class GenericTickingMethods {
             }
 
             final Block blockBelow = block.getRelative(BlockFace.DOWN);
-            final SlimefunItem possibleCrux = BlockStorage.check(blockBelow);
+            final SlimefunItem possibleCrux = StorageCacheUtils.getSfItem(blockBelow.getLocation());
 
             // And the block below must be a valid crux
             if (possibleCrux instanceof NetherCrux crux
@@ -198,10 +198,10 @@ public final class GenericTickingMethods {
     public static class TickParameters {
         private final Location location;
         private final NetherSeed seed;
-        private final Config data;
+        private final SlimefunBlockData data;
 
         @ParametersAreNonnullByDefault
-        public TickParameters(Location location, NetherSeed seed, Config data) {
+        public TickParameters(Location location, NetherSeed seed, SlimefunBlockData data) {
             this.location = location;
             this.seed = seed;
             this.data = data;
@@ -215,7 +215,7 @@ public final class GenericTickingMethods {
             return seed;
         }
 
-        public Config getData() {
+        public SlimefunBlockData getData() {
             return data;
         }
     }

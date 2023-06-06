@@ -1,5 +1,6 @@
 package dev.sefiraat.netheopoiesis.implementation.tools;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.api.interfaces.PurifyingObject;
 import dev.sefiraat.netheopoiesis.utils.ItemStackUtils;
 import dev.sefiraat.netheopoiesis.utils.ProtectionUtils;
@@ -48,7 +49,7 @@ public class PurificationScanner extends SlimefunItem {
                 return;
             }
 
-            final SlimefunItem slimefunItem = BlockStorage.check(block);
+            final SlimefunItem slimefunItem = StorageCacheUtils.getSfItem(block.getLocation());
 
             if (slimefunItem instanceof PurifyingObject object
                 && ProtectionUtils.hasPermission(player, block, Interaction.INTERACT_BLOCK)

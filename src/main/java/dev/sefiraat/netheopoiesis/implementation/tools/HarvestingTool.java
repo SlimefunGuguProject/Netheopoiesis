@@ -1,5 +1,6 @@
 package dev.sefiraat.netheopoiesis.implementation.tools;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.api.items.HarvestableSeed;
 import dev.sefiraat.netheopoiesis.api.items.NetherSeed;
 import dev.sefiraat.netheopoiesis.utils.Keys;
@@ -50,7 +51,7 @@ public class HarvestingTool extends LimitedUseItem {
         final Optional<Block> optional = e.getClickedBlock();
         if (optional.isPresent()) {
             final Block block = optional.get();
-            final SlimefunItem slimefunItem = BlockStorage.check(block);
+            final SlimefunItem slimefunItem = StorageCacheUtils.getSfItem(block.getLocation());
             if (slimefunItem instanceof HarvestableSeed seed && canHarvest(seed, block, e.getPlayer())) {
                 final ItemStack stackToDrop = seed.getHarvestingResult();
                 seed.updateGrowthStage(block, 1);

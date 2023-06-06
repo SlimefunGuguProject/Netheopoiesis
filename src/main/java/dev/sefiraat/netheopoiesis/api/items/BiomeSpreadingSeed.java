@@ -1,5 +1,6 @@
 package dev.sefiraat.netheopoiesis.api.items;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
 import dev.sefiraat.netheopoiesis.Netheopoiesis;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
@@ -28,13 +29,13 @@ public class BiomeSpreadingSeed extends CruxSpreadingSeed {
 
     @Override
     @ParametersAreNonnullByDefault
-    public void onTickFullyGrown(Location location, NetherSeed seed, Config data) {
+    public void onTickFullyGrown(Location location, NetherSeed seed, SlimefunBlockData data) {
         spread(location, seed, data);
     }
 
     @Override
     @ParametersAreNonnullByDefault
-    public void afterSpread(Location sourceLocation, NetherSeed seed, Config data, Block spreadTo) {
+    public void afterSpread(Location sourceLocation, NetherSeed seed, SlimefunBlockData data, Block spreadTo) {
         if (this.biome != null) {
             for (int i = spreadTo.getY() - 2; i < spreadTo.getY() + 5; i++) {
                 spreadTo.getWorld().setBiome(spreadTo.getX(), i, spreadTo.getZ(), this.biome);

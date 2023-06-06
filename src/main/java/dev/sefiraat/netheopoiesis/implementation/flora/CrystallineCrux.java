@@ -1,5 +1,7 @@
 package dev.sefiraat.netheopoiesis.implementation.flora;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.Netheopoiesis;
 import dev.sefiraat.netheopoiesis.Purification;
 import dev.sefiraat.netheopoiesis.api.items.NetherCrux;
@@ -10,9 +12,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -66,7 +67,7 @@ public class CrystallineCrux extends NetherCrux {
                         event.setCancelled(true);
                         block.setType(Material.AIR);
                     }
-                    BlockStorage.clearBlockInfo(block);
+                    Slimefun.getDatabaseManager().getBlockDataController().removeBlock(block.getLocation());
                     removePurificationRegistry(block);
                 }
             },
@@ -77,7 +78,7 @@ public class CrystallineCrux extends NetherCrux {
                 }
 
                 @Override
-                public void tick(Block block, SlimefunItem item, Config data) {
+                public void tick(Block block, SlimefunItem item, SlimefunBlockData data) {
                     onTick(block);
                 }
             }
@@ -90,7 +91,7 @@ public class CrystallineCrux extends NetherCrux {
         // If no steps left, kill off the block to stop ticking
         if (stepsLeft == 0) {
             block.setType(Material.WATER, true);
-            BlockStorage.clearBlockInfo(block);
+            Slimefun.getDatabaseManager().getBlockDataController().removeBlock(block.getLocation());
             Purification.removeValue(block);
             return;
         }
@@ -104,7 +105,7 @@ public class CrystallineCrux extends NetherCrux {
 
                 canTransform = false;
                 if (chance <= required) {
-                    BlockStorage.clearBlockInfo(testBlock);
+                    Slimefun.getDatabaseManager().getBlockDataController().removeBlock(testBlock.getLocation());
                     Purification.removeValue(testBlock);
                     // Schedule a task to ensure the new block storage happens only AFTER deletion
                     final UpdateCruxTask task = new UpdateCruxTask(
@@ -119,17 +120,17 @@ public class CrystallineCrux extends NetherCrux {
         // We can only transform when there is no lava around, to stop turning to cobble
         if (canTransform) {
             block.setType(Material.WATER, true);
-            BlockStorage.clearBlockInfo(block);
+            Slimefun.getDatabaseManager().getBlockDataController().removeBlock(block.getLocation());
             Purification.removeValue(block);
         }
     }
 
     public void setRemainingSteps(@Nonnull Block block, int steps) {
-        BlockStorage.addBlockInfo(block, Keys.CRYSTALLINE_STEPS_REMAINING, String.valueOf(steps));
+        StorageCacheUtils.setData(block.getLocation(), Keys.CRYSTALLINE_STEPS_REMAINING, String.valueOf(steps));
     }
 
     public int getRemainingSteps(@Nonnull Block block) {
-        final String steps = BlockStorage.getLocationInfo(block.getLocation(), Keys.CRYSTALLINE_STEPS_REMAINING);
+        final String steps = StorageCacheUtils.getData(block.getLocation(), Keys.CRYSTALLINE_STEPS_REMAINING);
         return steps == null ? 0 : Integer.parseInt(steps);
     }
 }

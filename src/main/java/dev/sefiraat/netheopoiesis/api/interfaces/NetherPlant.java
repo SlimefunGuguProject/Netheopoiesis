@@ -1,12 +1,12 @@
 package dev.sefiraat.netheopoiesis.api.interfaces;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
 import dev.sefiraat.netheopoiesis.api.items.NetherCrux;
 import dev.sefiraat.netheopoiesis.api.items.NetherSeed;
 import dev.sefiraat.netheopoiesis.api.plant.GrowthStages;
 import dev.sefiraat.netheopoiesis.utils.Skulls;
 import dev.sefiraat.netheopoiesis.utils.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 
@@ -26,10 +26,10 @@ public interface NetherPlant extends PurifyingObject {
      *
      * @param location The location of the plant being ticked
      * @param seed     The {@link SlimefunItem} being ticked
-     * @param data     The {@link Config} from BlockStorage for the location
+     * @param data     The {@link SlimefunBlockData} from BlockStorage for the location
      */
     @ParametersAreNonnullByDefault
-    default void onTickAlways(Location location, NetherSeed seed, Config data) {
+    default void onTickAlways(Location location, NetherSeed seed, SlimefunBlockData data) {
 
     }
 
@@ -38,10 +38,10 @@ public interface NetherPlant extends PurifyingObject {
      *
      * @param location The location of the plant being ticked
      * @param seed     The {@link SlimefunItem} being ticked
-     * @param data     The {@link Config} from BlockStorage for the location
+     * @param data     The {@link SlimefunBlockData} from BlockStorage for the location
      */
     @ParametersAreNonnullByDefault
-    default void onTickFullyGrown(Location location, NetherSeed seed, Config data) {
+    default void onTickFullyGrown(Location location, NetherSeed seed, SlimefunBlockData data) {
 
     }
 
@@ -50,10 +50,10 @@ public interface NetherPlant extends PurifyingObject {
      *
      * @param location The location of the plant being ticked
      * @param seed     The {@link SlimefunItem} being ticked
-     * @param data     The {@link Config} from BlockStorage for the location
+     * @param data     The {@link SlimefunBlockData} from BlockStorage for the location
      */
     @ParametersAreNonnullByDefault
-    default void onGrowthStep(Location location, NetherSeed seed, Config data) {
+    default void onGrowthStep(Location location, NetherSeed seed, SlimefunBlockData data) {
 
     }
 
@@ -62,10 +62,10 @@ public interface NetherPlant extends PurifyingObject {
      *
      * @param location The location of the plant being ticked
      * @param seed     The {@link SlimefunItem} being ticked
-     * @param data     The {@link Config} from BlockStorage for the location
+     * @param data     The {@link SlimefunBlockData} from BlockStorage for the location
      */
     @ParametersAreNonnullByDefault
-    default void onFullyMatures(Location location, NetherSeed seed, Config data) {
+    default void onFullyMatures(Location location, NetherSeed seed, SlimefunBlockData data) {
 
     }
 

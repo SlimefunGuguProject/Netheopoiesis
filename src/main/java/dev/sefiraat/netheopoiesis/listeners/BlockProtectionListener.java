@@ -1,5 +1,6 @@
 package dev.sefiraat.netheopoiesis.listeners;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.api.items.NetherCrux;
 import dev.sefiraat.netheopoiesis.api.items.NetherSeed;
 import dev.sefiraat.netheopoiesis.utils.WorldUtils;
@@ -24,7 +25,7 @@ public class BlockProtectionListener implements Listener {
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
     public void onBlockChange(@Nonnull EntityChangeBlockEvent event) {
         if (WorldUtils.inNether(event.getEntity())) {
-            final SlimefunItem slimefunItem = BlockStorage.check(event.getBlock());
+            final SlimefunItem slimefunItem = StorageCacheUtils.getSfItem(event.getBlock().getLocation());
             if (slimefunItem instanceof NetherSeed || slimefunItem instanceof NetherCrux) {
                 event.setCancelled(true);
             }

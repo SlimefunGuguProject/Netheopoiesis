@@ -1,5 +1,7 @@
 package dev.sefiraat.netheopoiesis.implementation.flora;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.netheopoiesis.Netheopoiesis;
 import dev.sefiraat.netheopoiesis.Purification;
 import dev.sefiraat.netheopoiesis.api.RecipeTypes;
@@ -13,9 +15,8 @@ import dev.sefiraat.netheopoiesis.utils.ProtectionUtils;
 import dev.sefiraat.netheopoiesis.utils.WorldUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -52,7 +53,7 @@ public class PurificationSeed extends NetherSeed {
 
     @Override
     @ParametersAreNonnullByDefault
-    public void onTickFullyGrown(Location location, NetherSeed seed, Config data) {
+    public void onTickFullyGrown(Location location, NetherSeed seed, SlimefunBlockData data) {
         double randomChance = ThreadLocalRandom.current().nextDouble();
 
         if (randomChance > 0.25) {
@@ -83,7 +84,7 @@ public class PurificationSeed extends NetherSeed {
                 // Event cancelled - lets not spread
                 return;
             }
-            BlockStorage.clearBlockInfo(block);
+            Slimefun.getDatabaseManager().getBlockDataController().removeBlock(block.getLocation());
             Purification.removeValue(block);
             // Schedule a task to ensure the new block storage happens only AFTER deletion
             UpdateCruxTask task = new UpdateCruxTask(block, Stacks.BASIC_PURIFIED_NETHERRACK);
@@ -96,7 +97,7 @@ public class PurificationSeed extends NetherSeed {
         // We override this as this is the only one able to be placed on both vanilla and crux'
         final Block block = event.getBlock();
         final Block blockBelow = block.getRelative(BlockFace.DOWN);
-        final SlimefunItem possibleCrux = BlockStorage.check(blockBelow);
+        final SlimefunItem possibleCrux = StorageCacheUtils.getSfItem(blockBelow.getLocation());
         final Location location = block.getLocation();
 
         if (location.getWorld() != null
@@ -104,11 +105,12 @@ public class PurificationSeed extends NetherSeed {
             && (materials.contains(blockBelow.getType()) || possibleCrux instanceof NetherCrux)
         ) {
             final UUID uuid = event.getPlayer().getUniqueId();
-            BlockStorage.addBlockInfo(location, Keys.SEED_GROWTH_STAGE, "0");
-            BlockStorage.addBlockInfo(location, Keys.BLOCK_OWNER, uuid.toString());
+            StorageCacheUtils.setData(location, Keys.SEED_GROWTH_STAGE, "0");
+            StorageCacheUtils.setData(location, Keys.BLOCK_OWNER, uuid.toString());
             ownerCache.put(location, uuid);
         } else {
             event.setCancelled(true);
+            Slimefun.getDatabaseManager().getBlockDataController().removeBlock(location);
         }
     }
 
