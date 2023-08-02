@@ -41,7 +41,11 @@ public class UpdateCruxTask extends BukkitRunnable {
 //        }
         // Store the new data then cancel task
         block.setType(crux.getType());
-        Slimefun.getDatabaseManager().getBlockDataController().createBlock(block.getLocation(), crux.getItemId());
+        
+        if (!StorageCacheUtils.hasBlock(block.getLocation())) {
+            Slimefun.getDatabaseManager().getBlockDataController().createBlock(block.getLocation(), crux.getItemId());
+        }
+        
         if (steps > -1) {
             StorageCacheUtils.setData(block.getLocation(), Keys.CRYSTALLINE_STEPS_REMAINING, String.valueOf(this.steps));
         }
