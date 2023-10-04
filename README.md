@@ -12,18 +12,13 @@ Netheopoiesis 是 Slimefun Addon Jam 2022 的参赛作品，由 Sefiraat 和 J3f
 - 为同时玩原版和 Slimefun 的玩家提供在下界永居的机会。
 - 让下界变成一个更舒适 (也更安全！), 甚至可以称之为家的地方。
 
-关于机制和植物的详细介绍可以在[文档](https://docs.sefiraat.dev/netheopoiesis/purification)中找到。
+关于机制和植物的详细介绍可以在[中文Wiki](https://slimefun-addons-wiki.guizhanss.cn/netheopoiesis/)中找到。
 
 ## 下载
 
-点击这里下载 Netheopoiesis: [下载 Netheopoiesis](https://builds.guizhanss.net/SlimefunGuguProject/Netheopoiesis/master)
-
 <p align="center">
-  <a href="https://github.com/SlimefunGuguProject/Netheopoiesis/actions/workflows/maven.yml">
-    <img src="https://github.com/SlimefunGuguProject/Netheopoiesis/actions/workflows/maven.yml/badge.svg" alt="Java CI"/>
-  </a>
-  <a href="https://builds.guizhanss.net/SlimefunGuguProject/Netheopoiesis/master">
-    <img src="https://builds.guizhanss.net/f/SlimefunGuguProject/Netheopoiesis/master/badge.svg" alt="Build status"/>
+  <a href="https://builds.guizhanss.com/SlimefunGuguProject/Netheopoiesis/master">
+    <img src="https://builds.guizhanss.com/f/SlimefunGuguProject/Netheopoiesis/master/badge.svg" alt="Build status"/>
   </a>
 </p>
 
