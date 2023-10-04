@@ -1,11 +1,10 @@
 version: "1"
 rules:
   - base: master
-    upstream: Sefiraat:master
+    upstream: LordIdra:master
     mergeMethod: merge
     assignees:
       - ybw0014
-      - haiman233
     conflictReviewers:
       - ybw0014
 
