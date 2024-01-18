@@ -1,7 +1,7 @@
 version: "1"
 rules:
   - base: master
-    upstream: LordIdra:master
+    upstream: Sefiraat:master
     mergeMethod: merge
     assignees:
       - ybw0014
