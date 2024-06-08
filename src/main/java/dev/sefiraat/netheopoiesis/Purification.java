@@ -2,8 +2,8 @@ package dev.sefiraat.netheopoiesis;
 
 import com.google.common.base.Preconditions;
 import dev.sefiraat.netheopoiesis.utils.WorldUtils;
-import io.github.bakedlibs.dough.blocks.BlockPosition;
-import io.github.bakedlibs.dough.blocks.ChunkPosition;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.ChunkPosition;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.block.Block;
