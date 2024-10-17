@@ -108,15 +108,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-<<<<<<< Updated upstream
-            <groupId>com.github.StarWishsama</groupId>
-            <artifactId>Slimefun4</artifactId>
-            <version>2024.3</version>
-=======
             <groupId>com.github.SlimefunGuguProject</groupId>
             <artifactId>Slimefun4</artifactId>
             <version>2024.3.1</version>
->>>>>>> Stashed changes
             <scope>provided</scope>
         </dependency>
 
