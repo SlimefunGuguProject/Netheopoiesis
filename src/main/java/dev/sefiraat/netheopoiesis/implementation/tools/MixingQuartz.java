@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
 public class MixingQuartz extends LimitedUseItem {
 
     private static final NamespacedKey KEY = Keys.newKey("uses");
-    private static final Pattern LORE_FLAVOUR = Pattern.compile(Theme.CLICK_INFO + "风味值: [0-9]+");
+    private static final Pattern LORE_FLAVOUR = Pattern.compile(Theme.CLICK_INFO.asTitle("风味值", "[0-9]+").substring(0, 2) + Theme.CLICK_INFO.asTitle("风味值", "[0-9]+").substring(2).toUpperCase());
 
     public MixingQuartz(ItemGroup group,
                         SlimefunItemStack item,
