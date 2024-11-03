@@ -617,10 +617,10 @@ public final class Items {
             .tryRegister(addon);
 
         new DroppingSeed(Stacks.GRASS_SEED)
-            .addDrop(new ItemStack(Material.GRASS), 2)
+            .addDrop(new ItemStack(Material.SHORT_GRASS), 2)
             .addDrop(new ItemStack(Material.TALL_GRASS), 2)
             .addDrop(new ItemStack(Material.SEAGRASS), 1)
-            .addDrop(new ItemStack(Material.TALL_SEAGRASS), 1)
+            .addDrop(new ItemStack(Material.KELP), 1)
             .setTriggerChance(0.01)
             .setGrowth(new Growth(GrowthStages.VINEY_GREEN, Placements.ALL, 1, 0.09))
             .addBreedingPair(Stacks.SPINDLE_SEED.getItemId(), Stacks.STRINGY_SEED.getItemId(), 0.1, 0.2)
