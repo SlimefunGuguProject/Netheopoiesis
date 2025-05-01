@@ -1,23 +1,24 @@
 package dev.sefiraat.netheopoiesis.api.plant.netheos;
 
-import dev.sefiraat.netheopoiesis.Netheopoiesis;
-import dev.sefiraat.netheopoiesis.api.RecipeTypes;
-import dev.sefiraat.netheopoiesis.implementation.Groups;
-import dev.sefiraat.netheopoiesis.implementation.netheos.NetheoBall;
-import dev.sefiraat.netheopoiesis.utils.TextUtils;
-import dev.sefiraat.netheopoiesis.utils.Theme;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import net.guizhanss.netheopoiesis.utils.NetheoBallUtils;
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+
+import dev.sefiraat.netheopoiesis.Netheopoiesis;
+import dev.sefiraat.netheopoiesis.api.RecipeTypes;
+import dev.sefiraat.netheopoiesis.implementation.Groups;
+import dev.sefiraat.netheopoiesis.implementation.netheos.NetheoBall;
+import dev.sefiraat.netheopoiesis.utils.Theme;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import net.guizhanss.netheopoiesis.utils.NetheoBallUtils;
 
 public class NetheoBalls {
 

@@ -1,5 +1,14 @@
 package dev.sefiraat.netheopoiesis;
 
+import java.text.MessageFormat;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import org.bstats.bukkit.Metrics;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+
 import dev.sefiraat.netheopoiesis.api.plant.netheos.NetheoBalls;
 import dev.sefiraat.netheopoiesis.implementation.Items;
 import dev.sefiraat.netheopoiesis.managers.ConfigManager;
@@ -10,13 +19,6 @@ import dev.sefiraat.netheopoiesis.managers.SupportedPluginManager;
 import dev.sefiraat.netheopoiesis.managers.TaskManager;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
-import org.bstats.bukkit.Metrics;
-import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.text.MessageFormat;
 
 public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
     // Todo replace with config
