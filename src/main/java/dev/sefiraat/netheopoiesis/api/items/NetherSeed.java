@@ -41,6 +41,7 @@ import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
+import net.guizhanss.guizhanlib.minecraft.utils.compatibility.ParticleX;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
@@ -527,6 +528,6 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
     }
 
     private void breedSuccess(@Nonnull Location location) {
-        ParticleUtils.randomSpread(WorldUtils.centre(location), Particle.ITEM_SLIME, 0.5, 4);
+        ParticleUtils.randomSpread(WorldUtils.centre(location), ParticleX.ITEM_SLIME, 0.5, 4);
     }
 }

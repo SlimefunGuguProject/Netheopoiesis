@@ -1,5 +1,6 @@
 package dev.sefiraat.netheopoiesis.utils;
 
+import net.guizhanss.guizhanlib.minecraft.utils.compatibility.ParticleX;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
@@ -68,7 +69,7 @@ public final class ParticleUtils {
             double x = ThreadLocalRandom.current().nextDouble(-radius, radius + 0.1);
             double y = ThreadLocalRandom.current().nextDouble(-radius, radius + 0.1);
             double z = ThreadLocalRandom.current().nextDouble(-radius, radius + 0.1);
-            location.getWorld().spawnParticle(Particle.DUST, location.clone().add(x, y, z), 1, options);
+            location.getWorld().spawnParticle(ParticleX.DUST, location.clone().add(x, y, z), 1, options);
         }
     }
 
@@ -84,7 +85,7 @@ public final class ParticleUtils {
 
     @ParametersAreNonnullByDefault
     public static void drawLine(Location start, Location end, double space, @Nonnull Particle.DustOptions dustOptions) {
-        drawLine(Particle.DUST, start, end, space, dustOptions);
+        drawLine(ParticleX.DUST, start, end, space, dustOptions);
     }
 
     @ParametersAreNonnullByDefault

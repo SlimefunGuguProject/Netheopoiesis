@@ -12,6 +12,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
+import net.guizhanss.guizhanlib.minecraft.utils.compatibility.ParticleX;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -89,7 +90,7 @@ public class NetherBeacon extends BeaconSiphoningBlock {
             fallingBlock.setDropItem(false);
             PersistentDataAPI.setBoolean(fallingBlock, Keys.MANAGED_FALLING_BLOCK, true);
             testBlock.setType(Material.AIR);
-            ParticleUtils.randomSpread(fallingBlock, Particle.EXPLOSION_EMITTER, 2, 4);
+            ParticleUtils.randomSpread(fallingBlock, ParticleX.EXPLOSION_EMITTER, 2, 4);
             fallingBlock.getWorld().playSound(fallingBlock, Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
             drawBeam(block);
         }
